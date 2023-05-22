@@ -104,15 +104,12 @@ const handleEditSubmit = (event) => {
   state.orders[orderId] = createOrderData(order);
 
   // Update the item element with the new data
-  let newOrder = createOrderHtml(order);
-  let oldOrder = document.querySelector(`[data-id="${id}"]`);
-
-  if (order.title === "Spinaches" || order.title === "Tomatoes" || order.title === "Potatoes" || order.title === "Onions") {
-    newOrder = createOrderHtml(order);
-  oldOrder = document.querySelector(`[data-id="${id}"]`);
+  
+  const newOrder = createOrderHtml(order);
+  const oldOrder = document.querySelector(`[data-id="${id}"]`);
   oldOrder.replaceWith(newOrder);
 
-  } else if (order.title !== "Spinaches" && order.title !== "Tomatoes" && order.title !== "Potatoes" && order.title !== "Onions") {
+ if (order.title !== "Spinaches" && order.title !== "Tomatoes" && order.title !== "Potatoes" && order.title !== "Onions") {
     html.add.overlay.close();
     html.help.overlay.toggleAttribute("open");
   }
