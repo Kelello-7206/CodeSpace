@@ -55,13 +55,13 @@ const handleAddSubmit = (event) => {
     table: html.add.table.value,
   };
 
-  if (order.title === "Spinach" || order.title === "Tomato" || order.title === "Potato" || order.title === "Onion") {
+  if (order.title === "Spinaches" || order.title === "Tomatoes" || order.title === "Potatoes" || order.title === "Onions") {
     const orderElement = createOrderHtml(order);
     html.area.printing.append(orderElement);
 
     html.add.form.reset();
     html.add.overlay.close();
-  } else if (order.title !== "Spinach" && order.title !== "Tomato" && order.title !== "Potato" && order.title !== "Onion") {
+  } else if (order.title !== "Spinaches" && order.title !== "Tomatoes" && order.title !== "Potatoes" && order.title !== "Onions") {
     html.add.overlay.close();
     html.help.overlay.toggleAttribute("open");
   }
@@ -107,12 +107,12 @@ const handleEditSubmit = (event) => {
   let newOrder = createOrderHtml(order);
   let oldOrder = document.querySelector(`[data-id="${id}"]`);
 
-  if (order.title === "Spinach" || order.title === "Tomato" || order.title === "Potato" || order.title === "Onion") {
+  if (order.title === "Spinaches" || order.title === "Tomatoes" || order.title === "Potatoes" || order.title === "Onions") {
     newOrder = createOrderHtml(order);
   oldOrder = document.querySelector(`[data-id="${id}"]`);
   oldOrder.replaceWith(newOrder);
 
-  } else if (order.title !== "Spinach" && order.title !== "Tomato" && order.title !== "Potato" && order.title !== "Onion") {
+  } else if (order.title !== "Spinaches" && order.title !== "Tomatoes" && order.title !== "Potatoes" && order.title !== "Onions") {
     html.add.overlay.close();
     html.help.overlay.toggleAttribute("open");
   }
