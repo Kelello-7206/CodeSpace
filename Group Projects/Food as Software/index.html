@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3-D Food printer app</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="JavaScript/scripts.js" defer type="module"></script>
+    <script src="JavaScript/data.js" defer type="module"></script>
+    <script src="JavaScript/view.js" defer type="module"></script>
+</head>
+
+<body>
+    <header class="actions">
+        <h1 class="sr-only">3-D Food printer app</h1>
+        <div class="actions__inner">
+            <button class="button button_primary" data-add>Print Item</button>
+        </div>
+    </header>
+
+    <dialog class="overlay" data-help-overlay>
+        <h2 class="overlay__title">Help</h2>
+        <p><strong>To use the app, you can start by printing a new item by clicking the "Print" button.</strong></p>
+        <p><strong>ITEMS THAT THE PRINTER CAN PRINT:</strong></p>
+        <ul>
+            <li>Spinaches</li>
+            <li>Tomatoes</li>
+            <li>Potatoes</li>
+            <li>Onions</li>
+        </ul>
+        <br>
+        <p><strong>HOW LONG IT WILL TAKE FOR NUMBER OF ITEMS TO BE PRINTED:</strong></p>
+        <ul>
+            <li>25 (3 minutes to print)</li>
+            <li>45 (8 minutes to print)</li>
+            <li>65 (17 minutes to print)</li>
+            <li>85 (25 minutes to print)</li>
+        </ul>
+
+        <div class="overlay__row">
+            <button class="button" type="button" data-help-cancel>Close</button>
+        </div>
+    </dialog>
+    <!-- 
+    // Create HTML element for new order and append to Ordered column
+    const orderElement = createOrderHtml(order);
+    html.area.ordered.append(orderElement);
+    // Reset form and hide add overlay
+    html.add.form.reset();
+    html.add.overlay.close(); -->
+
+
+    <dialog class="overlay" data-add-overlay>
+        <div class="overlay__top">
+            <h2 class="overlay__title">Print Item</h2>
+        </div>
+
+        <form class="overlay__form" data-add-form id="add-form">
+            <label class="overlay__field">
+                <div class="overlay__label">Item</div>
+                <input class="overlay__input" data-add-title name="title" required>
+            </label>
+
+            <label class="overlay__field">
+                <div class="overlay__label">Number of Items</div>
+                <select class="overlay__input overlay__input_select" data-add-table name="table"></select>
+            </label>
+
+        </form>
+        <div class="overlay__row">
+            <button class="button" type="button" data-add-cancel>Cancel</button>
+            <button class="button button_primary" type="submit" form="add-form">Print</button>
+        </div>
+    </dialog>
+
+    <dialog class="overlay" data-edit-overlay>
+        <div class="overlay__top">
+            <h2 class="overlay__title">Edit Print</h2>
+        </div>
+
+        <form class="overlay__form" data-edit-form id="edit-form">
+            <input hidden name="id" data-edit-id>
+
+            <label class="overlay__field">
+                <div class="overlay__label">Item</div>
+                <input class="overlay__input" data-edit-title name="title" required>
+            </label>
+
+            <label class="overlay__field">
+                <div class="overlay__label">Number of Items</div>
+                <select class="overlay__input overlay__input_select" data-edit-table name="table"></select>
+            </label>
+
+            <label class="overlay__field">
+                <div class="overlay__label">Status</div>
+
+                <select class="overlay__input overlay__input_select" data-edit-column name="column">
+                    <option value="printing">Printing</option>
+                    <option value="done">Done</option>
+                </select>
+            </label>
+
+        </form>
+        <div class="overlay__row">
+            <button class="button" type="button" data-edit-cancel>Cancel</button>
+            <button class="button button_primary" type="submit" form="edit-form">Update</button>
+        </div>
+    </dialog>
+
+    <h2 class="sr-only">Print Item</h2>
+
+    <div class="grid" data-grid>
+
+        <section class="grid__column" data-area="printing">
+            <h2 class="grid__title">🖨️Printing</h2>
+            <div class="grid__content" data-column="printing"></div>
+        </section>
+
+        <section class="grid__column grid__column_last" data-area="done">
+            <h2 class="grid__title">✅ Done</h2>
+            <div class="grid__content" data-column="done"></div>
+        </section>
+    </div>
+
+    <button class="help" data-help>?</button>
+    <div class="backdrop"></div>
+</body>
+
+</html>
