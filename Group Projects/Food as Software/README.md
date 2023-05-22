@@ -1,7 +1,7 @@
-**Project name:** IWA1
+**Project name:** North Star 3-D printing app project
 
-**Author:** Tumleo Kelello Seripe
+**Authors:** Vuyiswa Diale, Keorapetse Magano ,Thato Mothibi,Refilwe Nqatyelwa, Oratile Mafatshe,Tumleo Kelello Seripe
 
-**List of projects used:** Visual Studio Code, Github ,
+**List of projects used:** Visual Studio Code, Github , Loom , LMS (IWA18) as reference
 
-**Brief description of project:** A follow along lecture video where JavaScript, HTML and CSS are used to turn the page into a fully-working, interactive web app
+**Brief description of project:** Demo 3-D printing app that allows the user to print specific items the 3-D printer can print
