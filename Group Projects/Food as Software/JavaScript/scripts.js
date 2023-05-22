@@ -104,7 +104,6 @@ const handleEditSubmit = (event) => {
   state.orders[orderId] = createOrderData(order);
 
   // Update the item element with the new data
-  
   const newOrder = createOrderHtml(order);
   const oldOrder = document.querySelector(`[data-id="${id}"]`);
   oldOrder.replaceWith(newOrder);
