@@ -1,0 +1,171 @@
+:root {
+    --black: rgba(0, 0, 0, 0.922);
+    --pink: rgba(208, 41, 163, 0.937);
+    --white: rgba(255, 255, 255, 0.952);
+    --yellow: rgb(236, 236, 15);
+    /*root is used to classify the colors used on the website*/
+}
+
+.pink {
+    color: var(--pink);
+}
+
+.grey {
+    color: var(--grey);
+}
+
+.black {
+    color: var(--black);
+}
+
+header {
+    height: auto;
+    width: auto;
+    background-color: var(--black);
+}
+
+div {
+    display: flex;
+}
+
+
+.head1 {
+    display: inline;
+}
+
+.hh1{
+    padding-top: 5%;
+    padding-left: 25%;
+    color: var(--white);
+}
+
+.pic {
+    display: inline-block;
+    position: absolute;
+    top: 16%;
+    margin: 50px;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 1px solid var(--black);
+    transform: rotate(45deg);
+    /*Used to shape the picture into a diamond*/
+}
+
+.pic img {
+    display: flexbox;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    width: 520px;
+    height: 520px;
+    margin-top: -80px;
+    margin-left: -100px;
+    /*code helps to position the picture in the diamond*/
+}
+
+nav {
+    padding-top: 3%;
+    padding-left: 35%;
+    padding-bottom: 1%;
+    margin-top: 5%;
+}
+
+ul {
+    color: var(--black);
+}
+
+body {
+    padding-top: 5%;
+    background-color: grey;
+}
+
+section>p {
+    font-size: 110%;
+}
+
+article>p {
+    font-size: 110%;
+}
+
+h1 {
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h2,
+h3 {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Times New Roman', serif;
+
+}
+
+
+section {
+    background-color: var(--pink);
+    text-align: center;
+}
+
+article {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.white {
+    color: var(--white);
+}
+
+a:hover {
+    color: var(--yellow);
+    /*links changes color when the cursor is on them*/
+}
+
+.vd{
+    display: inline-block;
+}
+
+form{
+    padding-top: 1%;
+}
+
+label{
+    text-align: right;
+    display: inline-block;
+    width: 10%;
+    margin: 5px;
+    font-weight: bold;
+    color: var(--pink)
+}
+
+.A{
+    width: 2%;
+}
+
+.Z{
+    margin-left: -12%;
+    /*To align the label comment correctly*/
+}
+
+#sub{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding-top: 1%;
+}

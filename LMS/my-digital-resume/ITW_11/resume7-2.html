@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--NOTE, I used prettier code extension to format the code -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+    <!--link of css-->
+    <title>My digital resume</title>
+  </head>
+
+  <!--header-->
+      <header>
+        <div class="hero">
+      <picture>
+        <source media="(max-width: 550px)" srcset="images/tk3.jpg">
+        <source media="(max-width: 850px)" srcset="images/tk2.jpg">
+        <img src="images/tk1.jpg" alt="pic">
+      </picture>
+
+      <h1 class="pink">Tumelo</h1><h1 class="pink"> Kelello</h1><h1 class="pink"> Seripe</h1>
+  
+      <p class="white1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Est
+        pellentesque elit ullamcorper dignissim cras tincidunt</p>
+      
+   <!--nav-->
+   <nav>
+    <a href="#edu" class="pink">Education | </a>
+    <a href="#exp" class="pink">Experience | </a>
+    <a href="#con" class="pink">Contact Details </a>
+  </nav>
+  <!--End of nav-->
+</div>
+  </header>
+  <!--End of header-->
+
+  <!--body-->
+  <body>
+    <div>
+      <!--section-->
+      <section>
+        <h2 class="black" id="edu">Education</h2>
+
+        <h3 class="black">Qualification 1</h3>
+        <p class="white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae
+          sapien pellentesque habitant morbi tristique senectus. Ipsum dolor sit
+          amet consectetur adipiscing elit duis tristique sollicitudin. Volutpat
+          maecenas volutpat blandit aliquam etiam erat velit.
+        </p>
+
+        <h3 class="black">Qualification 2</h3>
+        <p class="white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Est
+          pellentesque elit ullamcorper dignissim cras tincidunt. Non odio
+          euismod lacinia at quis. Suspendisse in est ante in.
+        </p>
+
+        <h3 class="black">Qualification 3</h3>
+        <p class="white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Est
+          pellentesque elit ullamcorper dignissim cras tincidunt. Non odio
+          euismod lacinia at quis. Suspendisse in est ante in.
+        </p>
+
+        <h3 class="black">Skills</h3>
+
+        <p class="white">
+          Intro to Web at
+          <a href="https://www.codespace.co.za/" class="white"
+            >CodeSpace Academy</a
+          >
+        </p>
+        <p class="white">
+          Computer Fundermentals at
+          <a href="https://www.codespace.co.za/" class="white"
+            >CodeSpace Academy</a
+          >
+        </p>
+        <p class="white">Fundermentals of Slack</p>
+        <p class="white">Fundermentals of Github</p>
+      </section>
+      <!--End of section-->
+
+      <!--article-->
+      <article>
+        <h2 class="pink" id="exp">Experience</h2>
+
+        <h3 class="pink">Job 1</h3>
+        <p class="black">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Pellentesque sit amet porttitor eget dolor morbi. Nam aliquam sem et
+          tortor consequat id porta nibh. Consequat id porta nibh venenatis cras
+          sed felis eget. Volutpat blandit aliquam etiam erat velit scelerisque
+          in dictum non.
+        </p>
+
+        <h3 class="pink">Job 2</h3>
+        <p class="black">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Pellentesque sit amet porttitor eget dolor morbi. Nam aliquam sem et
+          tortor consequat id porta nibh. Consequat id porta nibh venenatis cras
+          sed felis eget. Volutpat blandit aliquam etiam erat velit scelerisque
+          in dictum non.
+        </p>
+        <h3 class="pink">Job 3</h3>
+        <p class="black">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Pellentesque sit amet porttitor eget dolor morbi. Nam aliquam sem et
+          tortor consequat id porta nibh. Consequat id porta nibh venenatis cras
+          sed felis eget. Volutpat blandit aliquam etiam erat velit scelerisque
+          in dictum non.
+        </p>
+      </article>
+      <!--End of article-->
+    </div>
+  </body>
+  <!--End of body-->
+
+  <!--Footer-->
+  <footer>
+    <h2 class="pink" id="con">Contact Details</h2>
+    <p>Cellphone number: 01632 960811</p>
+    <!--NOTE, fake number-->
+    <p>Email: tk12345@gmail.com</p>
+    <!--NOTE, gmail-->
+    <p>
+      For more information reference, please check my
+      <a href="https://za.linkedin.com/">LinkedIn</a> profile
+      <!--NOTE, fake profile-->
+    </p>
+
+    <!--Form-->
+    <form action="https://formsubmit.co/tk06tech@email.com" method="POST">
+      
+      <label>Are you interested?</label>
+      <input type="radio" name="m1" id="Y"><label for="Y" class="A">Yes</label><input type="radio" name="m1" id="N">
+      <label for="N" class="A">No</label>
+      <br>
+      <label>Your email</label>
+      <input type="email" placeholder="email">
+      <br>
+      <label class="Z">Comments</label>
+      <br>
+      <label></label>
+      <textarea cols="15" rows="5" placeholder="optional"></textarea>
+      <br>
+      <input type="submit" id="sub">
+
+    </form>
+    <!--End of form-->
+
+  </footer>
+  <!--End of footer-->
+</html>

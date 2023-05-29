@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--NOTE, I used prettier code extension to format the code -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Validation</title>
+  </head>
+
+  <!--body-->
+  <body>
+    <!--form-->
+    <form action="https://formsubmit.co/tk06tech@email.com" method="POST">
+        
+      <h1>Registration Form</h1>
+
+      <label class="A">User id:</label>
+      <input type="text" placeholder="User" max="12" min="7" required />
+      <br />
+
+      <label class="A">Password:</label>
+      <input type="password" placeholder="password" max="12" min="7" required/>
+      <br />
+
+      <label class="A">Name:</label>
+      <input type="text" placeholder="name" size="30" required  />
+      <br />
+
+      <label class="A">Address:</label>
+      <input type="text" placeholder="optional" size="30"/>
+      <br />
+
+      <label class="A">Country:</label>
+      <select value="Country" required>
+        <option>Choose one</option>
+        <option>South Africa</option>
+        <option>Ghana</option>
+        <option>Canada</option>
+        <option>Germany</option>
+      </select>
+      <br />
+
+      <label class="A">ZIP Code:</label>
+      <input type="number" placeholder="ZIP" required />
+      <br />
+
+      <label class="A">Email:</label>
+      <input type="email" placeholder="email"  required/>
+      <br />
+
+      <label class="A">Sex:</label>
+      <input type="radio" name="sex" id="M" required/>
+      <label for="M" class="B">Male</label>
+      <input type="radio" name="sex" id="F" required/>
+      <label for="F" class="B">Female</label>
+      <!--Radio button has the same name to ensure one radio button is chosen-->
+      <br />
+
+      <label class="A">Language:</label>
+      <input type="checkbox" name="lang" id="E" />
+      <label for="E" class="B">English</label>
+      <input type="checkbox" name="lang" id="N"/>
+      <label for="N" class="C">Non English</label>
+      <br />
+
+      <label class="A">About:</label>
+      <br />
+      <label></label>
+      <textarea cols="23" rows="6" placeholder="optional"></textarea>
+      <br />
+      <br />
+      <input type="submit"  id="sub" />
+    </form>
+    <!--End of form-->
+  </body>
+  <!--End of body-->
+</html>

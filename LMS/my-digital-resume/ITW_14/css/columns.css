@@ -1,0 +1,21 @@
+ul {
+  list-style: none;
+  width: 75vw;
+
+  /* add solution here */
+
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(245, 173, 41);
+
+  /* add solution here.. */
+
+  flex-direction: column;
+  width: 14vw;
+  height: 25vh;
+}

@@ -1,0 +1,29 @@
+label {
+    width: 8%;
+    display: inline-block;
+    margin: 4px;
+    font-weight: bold;
+    /*Aligns the form so that it looks neat*/
+}
+
+h1 {
+    padding-left: 5%;
+    font-weight: bolder;
+}
+
+.A {
+    text-align: right;
+}
+
+.B {
+    width: 3%;
+    font-weight: normal;
+}
+
+.C {
+    font-weight: normal;
+}
+
+#sub {
+    margin-left: 12%;
+}

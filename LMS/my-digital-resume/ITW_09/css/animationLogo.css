@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.box {
+  padding-top: 17%;
+  width: 180px;
+  height: 200px;
+ 
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  animation: face;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes face {
+  0% {
+    transform: rotate(0deg) translateX(-120px);
+  }
+  25% {
+    transform: rotate(-90deg) translateX(120px);
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg) translateX(120px);
+    filter: hue-rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(-360deg) translateX(-120px);
+    filter: hue-rotate(360deg);
+  }
+}

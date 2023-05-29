@@ -1,0 +1,106 @@
+/*NOTE, used css formatter extension to format the code*/
+
+.doc1 {
+  background-color: rgba(9, 40, 242, 0.634);
+  margin: auto;
+
+  /*This class fills the gaps between the colors*/
+}
+
+header {
+  background-color: rgba(255, 4, 4, 0.815);
+  text-align: center;
+  margin: auto;
+  padding: auto;
+}
+
+header > img {
+  display: block;
+  /*Displays the image in the center*/
+}
+
+ li {
+  list-style: none;
+  /*Hides the bullet points in the ul and li*/
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 4em;
+  color: black;
+}
+
+h2 {
+  font-size: 2.4em;
+  color: rgba(255, 255, 255, 0.826);
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+p {
+  font-family: "Lucida Grande", "Lucida Sans", sans-serif;
+}
+
+aside > .img1 {
+  height: 22vh;
+  width: 12vw;
+  border-radius: 45%;
+  border: 5px solid white;
+}
+
+.bull{
+    padding-bottom: 102vh ;
+    padding-right: 3.5vw;
+    float: left;
+    background-color: rgba(249, 249, 0, 0.833);
+    /*The float moves the article to the left*/
+}
+
+section {
+  padding-top: 2vh;
+  padding-left: 20vw;
+  padding-bottom: 1vh;
+  background-color: rgba(9, 40, 242, 0.634);
+  /*The padding centers the section*/
+}
+
+a {
+  color: maroon;
+  /*The links will appear maroon*/
+}
+
+a:hover {
+  color: black;
+  /*links turns black when it hover over the link*/
+}
+
+.A1{
+    padding-left: 40vw;
+    /*centers the h2 in the footer properly*/
+}
+
+.fa-brands{
+  color: black;
+}
+
+.fa-brands:hover{
+  color: green;
+  /*icon turns green when the cursor on it */
+}
+
+footer>p{
+    text-align: center;
+}
+
+footer {
+  margin-top: -4.3vh;
+  padding-bottom: 2vh;
+  background-color: rgba(255, 4, 4, 0.815);
+}

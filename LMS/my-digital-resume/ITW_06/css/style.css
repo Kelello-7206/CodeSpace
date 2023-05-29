@@ -1,0 +1,139 @@
+/*NOTE, I used prettier code extension to format the code*/
+
+header {
+  width: auto;
+  height: 35vh;
+  text-align: center;
+  background-color: black;
+}
+
+.link1 {
+  color: rgb(237, 199, 199);
+}
+
+.link1:hover {
+  color: orange;
+  /*changes color when the cursor is on the link*/
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 5vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-top: 3%;
+  margin-bottom: 6%;
+  color: white;
+  /*VW is used to make the font more responsive*/
+}
+
+h2,
+h3 {
+  color: black;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-weight: bold;
+  font-size: 1.6vw;
+  /*VW is used to make the font more responsive*/
+}
+
+h3:hover {
+  color: palevioletred;
+  /*changes color when the cursor is on the link*/
+}
+
+p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+  font-size: 1.1vw;
+  /*VW is used to make the font more responsive*/
+}
+
+.map1 {
+  display: flex;
+  margin: 0;
+}
+
+.mapA {
+  position: right;
+  width: auto;
+  height: auto;
+  padding-top: 3%;
+  padding-left: 25vw;
+  padding-right: 15vw;
+  color: white;
+  background-color: gray;
+  /*mapA is section*/
+}
+
+.mapB {
+  position: absolute;
+  z-index: 1;
+  top: 23%;
+  left: 3%;
+  width: 19vw;
+  height: 115vh;
+  color: white;
+  background-color: rgb(75, 72, 72);
+  /*To position the article on the left*/
+}
+
+img {
+  border-radius: 45%;
+  margin-top: 5vh;
+  margin-left: 4vw;
+  width: 11.5vw;
+  height: 21vh;
+}
+
+.sk1 {
+  margin-left: 6vw;
+  /*Class ofr heading 2 "Skills"*/
+}
+
+li {
+  list-style: none;
+  margin: 2vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+  font-size: 1vw;
+  color: white;
+}
+
+.link2 {
+  color: white;
+  /*To change the link color*/
+}
+
+.half {
+  position: absolute;
+  left: 3%;
+  bottom: -55%;
+  width: 19vw;
+  height: 18vh;
+  border-radius: 0 0 12rem 12rem;
+  background-color: rgb(75, 72, 72);
+  /*code for half circle and to position it properly */
+}
+
+.fa-solid {
+  color: rgb(153, 107, 114);
+}
+
+.fa-brands:hover {
+  color: orange;
+  /*changes color when the cursor is on the link*/
+}
+
+.A1 {
+  color: white;
+  /*change the color of heading 2*/
+}
+
+footer {
+  position: absolute;
+  z-index: -1;
+  text-align: center;
+  color: white;
+  width: 97.8vw;
+  height: 25vh;
+  background-color: black;
+}

@@ -1,0 +1,165 @@
+:root {
+    --black: rgb(0, 0, 0);
+    --pink: rgba(208, 41, 163, 0.937);
+    --white: rgba(255, 255, 255, 0.952);
+    --yellow: rgb(236, 236, 15);
+    /*root is used to classify the colors used on the website*/
+}
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/
+
+.pink {
+    color: var(--pink);
+}
+
+.grey {
+    color: var(--grey);
+}
+
+.black {
+    color: var(--black);
+}
+
+header {
+    background-color: var(--black);
+    height: auto;
+    width: auto;
+    margin: auto;
+}
+
+.hero {
+    background: var(--black) url(https://www.siili.com/hubfs/siili-data_and_ai_design_sprint-hero_desktop-1920x1080.gif);
+    background-repeat: no-repeat;
+    background-size: 60vw;
+    background-position: right;
+    /*Background is from the internet*/
+}
+
+img {
+    margin: auto;
+    width: 25vw;
+    height: 30vw;
+}
+
+div {
+    display: flex;
+}
+
+
+.head1 {
+    display: inline;
+    margin: auto;
+}
+
+nav {
+    margin: auto;
+}
+
+ul {
+    color: var(--black);
+}
+
+body {
+    padding-top: 5vw;
+    background-color: var(--black);
+    font-size: 1.2vw;
+}
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/
+
+h1 {
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 3vw;
+    margin: 0.3vw;
+}
+
+.white1 {
+    color: var(--white);
+    margin-top: 7vw;
+    margin-left: -30vw;
+    /*To algin the text correctly*/
+}
+
+h2 {
+    font-size: 2.5vw;
+}
+
+h3 {
+    font-size: 2wv;
+}
+
+h2,
+h3 {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Times New Roman', serif;
+    font-size: 5wv;
+
+}
+
+
+section {
+    background-color: var(--pink);
+    text-align: center;
+}
+
+article {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.white {
+    color: var(--white);
+}
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/
+
+a:hover {
+    color: var(--yellow);
+    /*links changes color when the cursor is on them*/
+}
+
+.vd {
+    display: inline-block;
+}
+
+form {
+    padding-top: 1vw;
+}
+
+label {
+    text-align: right;
+    display: inline-block;
+    width: 10vw;
+    margin: 1vw;
+    font-weight: bold;
+    color: var(--pink)
+}
+
+.A {
+    width: 1vw;
+}
+
+.Z {
+    margin-left: -8vw;
+    /*To align the label comment correctly*/
+}
+
+#sub {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding-top: 1vw;
+}
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/

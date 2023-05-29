@@ -1,0 +1,382 @@
+:root {
+    --black: rgb(0, 0, 0);
+    --pink: rgba(208, 41, 163, 0.937);
+    --white: rgba(255, 255, 255, 0.881);
+    --yellow: rgb(236, 236, 15);
+    /*root is used to classify the colors used on the website*/
+}
+
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/
+
+.white1 {
+    color: var(--white);
+    margin-top: 7vw;
+    margin-left: -30vw;
+    /*To algin the text correctly*/
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .white1 {
+        color: var(--white);
+        margin-top: 4.2vw;
+        margin-left: -30vw;
+    }
+
+    /*Mobile device settings*/
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .white1 {
+        color: var(--white);
+        margin-top: 5vw;
+        margin-left: -30vw;
+
+        /*Tablet setting*/
+    }
+}
+
+
+.pink {
+    color: var(--pink);
+}
+
+/*The color changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .pink {
+        color: rgba(0, 195, 255, 0.678);
+
+        /*Mobile setting*/
+    }
+
+    /*Mobile device settings*/
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .pink {
+        color: rgba(232, 34, 34, 0.808);
+
+        /*Tablet setting*/
+    }
+}
+
+
+.white {
+    color: rgba(255, 255, 255, 0.762);
+}
+
+/*The color changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .white {
+        color: var(--black);
+
+    }
+
+    /*Mobile device settings*/
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .white {
+        color: var(--black);
+
+        /*Tablet setting*/
+    }
+}
+
+
+.black {
+    color: var(--black);
+}
+
+/*The color changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .black {
+        color: rgba(255, 255, 255, 0.475);
+
+    }
+
+    /*Mobile device settings*/
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .black {
+        color: rgba(255, 255, 255, 0.762);
+
+        /*Tablet setting*/
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .black {
+        color: rgba(255, 255, 255, 0.762);
+
+        /*Desktop settings*/
+    }
+}
+
+
+header {
+    background-color: var(--black);
+    height: auto;
+    width: auto;
+    margin: auto;
+}
+
+
+.hero {
+    background: var(--black) url(https://www.siili.com/hubfs/siili-data_and_ai_design_sprint-hero_desktop-1920x1080.gif);
+    background-repeat: no-repeat;
+    background-size: 60vw;
+    background-position: right;
+    /*Background is from the internet*/
+}
+
+/*The hero banner changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .hero {
+        background: var(--black) url(https://cdn.dribbble.com/users/32512/screenshots/5276094/smile_loader_by_gleb.gif);
+        background-repeat: no-repeat;
+        background-size: 45vw;
+        background-position: right;
+
+    }
+
+    /*Mobile device settings*/
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .hero {
+        background: var(--black) url(https://i.pinimg.com/originals/8c/89/bb/8c89bb567f6ea95d4618febc0774b658.gif);
+        background-repeat: no-repeat;
+        background-size: 55vw;
+        background-position: right;
+    }
+
+    .hero>nav {
+        text-align: center;
+    }
+
+    /*Tablet setting*/
+}
+
+
+img {
+    margin: auto;
+    width: 25vw;
+    height: 30vw;
+}
+
+div {
+    display: flex;
+}
+
+.head1 {
+    display: inline;
+    margin: auto;
+}
+
+
+nav {
+    margin: auto;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    nav {
+        margin: auto;
+        margin-top: 26vw;
+        margin-left: -10vw;
+        color: rgba(255, 255, 255, 0.96);
+
+        /*Desktop settings*/
+    }
+}
+
+
+ul {
+    color: var(--black);
+}
+
+body {
+    padding-top: 5vw;
+    background-color: var(--black);
+    font-size: 1.2vw;
+}
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/
+
+h1 {
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 3vw;
+    margin: 0.3vw;
+}
+
+h2 {
+    font-size: 2.5vw;
+}
+
+h3 {
+    font-size: 2wv;
+}
+
+h2,
+h3 {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Times New Roman', serif;
+    font-size: 5wv;
+
+}
+
+
+section {
+    background-color: var(--pink);
+    text-align: center;
+}
+
+article {
+    background-color: var(--white);
+    text-align: center;
+}
+
+/*The website color changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    section {
+        background-color: rgb(16, 76, 0);
+    }
+
+    article {
+        background-color: rgb(95, 90, 0);
+    }
+
+    /*Mobile device settings*/
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    section {
+        background-color: #add8e6cb;
+    }
+
+    article {
+        background-color: #00008ba8;
+    }
+
+    /*Tablet setting*/
+}
+
+
+a:hover {
+    color: var(--yellow);
+    /*links changes color when the cursor is on them*/
+}
+
+/*The color links changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    a:hover {
+        color: var(--white);
+    }
+
+    /*Mobile device settings*/
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    a:hover {
+        color: rgb(255, 180, 41);
+    }
+
+    /*Tablet setting*/
+}
+
+
+.vd {
+    display: inline-block;
+}
+
+form {
+    padding-top: 1vw;
+}
+
+
+label {
+    text-align: right;
+    display: inline-block;
+    width: 10vw;
+    margin: 1vw;
+    font-weight: bold;
+    color: var(--pink)
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    label {
+        color: var(--black);
+    }
+
+    /*Mobile device settings*/
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    label {
+        color: var(--black);
+    }
+
+    /*Tablet setting*/
+}
+
+
+.A {
+    width: 1vw;
+}
+
+.Z {
+    margin-left: -8vw;
+    /*To align the label comment correctly*/
+}
+
+#sub {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding-top: 1vw;
+}
+
+/*The footer color changes depending on the size of the device*/
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    footer {
+        background-color: rgba(255, 166, 0, 0.685);
+        color: var(--black);
+    }
+
+    /*Mobile device settings*/
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        background-color: rgba(255, 255, 255, 0.762);
+        color: var(--black);
+    }
+
+    /*Tablet setting*/
+}
+
+/* NOTE, VW IS USED MORE SO THAT THE WEBSITE IS MORE RESPONSIVE*/

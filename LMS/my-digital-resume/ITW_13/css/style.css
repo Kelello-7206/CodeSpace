@@ -1,0 +1,146 @@
+body,
+html {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  color: white;
+}
+
+/* ===== Aside ====== */
+
+aside {
+  float: right;
+  top: 0;
+  height: 176vh;
+  background-color: rgb(241, 241, 241);
+  padding: 1rem;
+}
+
+/* ===== logo and title ===== */
+
+.logo-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* ===== nav ====== */
+
+header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0.5rem 0;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.nav-button > button {
+  width: 100%;
+  height: 100%;
+}
+
+/* ====== general ===== */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.section {
+  margin-top: 15vh;
+}
+
+/* ===== main ====== */
+
+main {
+}
+
+.main-content {
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.aside-content {
+  top: 5rem;
+}
+.aside-link:hover {
+  border-radius: 7px;
+  padding: 2px;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.795);
+  color: whitesmoke;
+}
+
+/* ===== Category ===== */
+
+.categories {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  text-align: center;
+}
+
+.category {
+  padding: 5px;
+  background-color: rgb(226, 204, 172);
+  margin: 0.25rem;
+}
+.category:hover {
+  background-color: rgb(155, 100, 55);
+  color: white;
+}
+
+button {
+  background-color: rgb(226, 204, 172);
+}
+button:hover {
+  background-color: rgb(155, 100, 55);
+  color: white;
+}
+
+/* ===== Sponsor ====== */
+
+.sponsors {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1.5fr 2fr 2fr;
+  text-align: center;
+}
+
+.sponsors > div {
+  background-color: whitesmoke;
+  margin: 2rem;
+}
+
+/* ===== Footer ====== */
+
+#footer {
+  display: grid;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+#footer > div {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2rem;
+}
+
+/* ===== grid modifiers ===== */
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.row-span-2 {
+  grid-row: span 2;
+}
