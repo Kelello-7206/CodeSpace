@@ -8,16 +8,21 @@ form.addEventListener("submit", (event) => {
   const entries = new FormData(event.target);
   const { dividend, divider } = Object.fromEntries(entries);
 
-try {
-    if(dividend == '' && divider == '') throw "Division not performed. Both values are required in inputs. Try again"
+  try {
+    if (dividend === '' || divider === '') {
+      throw "Division not performed. Both values are required in inputs. Try again";
+    }
 
-    if(dividend <= 0 && divider <= 0) throw "Division not performed. Invalid number provided. Try again"
+    if (isNaN(dividend) || isNaN(divider)) {
+      throw "Something critical went wrong. Please reload the page";
+    }
 
-} catch (error) {
-    result.innerText = error
-}
+    if (dividend <= 0 || divider <= 0) {
+      throw "Division not performed. Invalid number provided. Try again";
+    }
 
-
-//Math.trunc removes decimal places
-  result.innerText = Math.trunc(dividend / divider);
+    result.innerText = Math.trunc(dividend / divider);
+  } catch (error) {
+    result.innerText = error;
+  }
 });
