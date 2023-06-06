@@ -14,7 +14,7 @@ form.addEventListener("submit", (event) => {
       throw "Division not performed. Both values are required in inputs. Try again";
     }
 
-    //Checks if the input iss a number
+    //Checks if the input is a number
     if (isNaN(dividend) || isNaN(divider)) {
       throw "Something critical went wrong. Please reload the page";
     }
