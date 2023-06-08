@@ -31,7 +31,8 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
 document.querySelector('[data-list-items]').appendChild(starting)
 
 
-function createOptions(data, targetSelector) {
+ const createOptions = (data, targetSelector) => {
+
     const fragment = document.createDocumentFragment();
     const firstElement = document.createElement('option');
     firstElement.value = 'any';
@@ -81,15 +82,7 @@ function createOptions(data, targetSelector) {
 
 // document.querySelector('[data-search-authors]').appendChild(authorsHtml)
 
-// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-//     document.querySelector('[data-settings-theme]').value = 'night'
-//     document.documentElement.style.setProperty('--color-dark', '255, 255, 255');
-//     document.documentElement.style.setProperty('--color-light', '10, 10, 20');
-// } else {
-//     document.querySelector('[data-settings-theme]').value = 'day'
-//     document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
-//     document.documentElement.style.setProperty('--color-light', '255, 255, 255');
-// }
+
 
 document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
 document.querySelector('[data-list-button]').enable = (matches.length - (page * BOOKS_PER_PAGE)) > 0
@@ -98,6 +91,19 @@ document.querySelector('[data-list-button]').innerHTML = `
     <span>Show more</span>
     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
 `
+
+
+
+// document.querySelectorAll('.overlay').addEventListener('click',() => {
+//     document.querySelectorAll('.overlay').open = false 
+//     document.querySelector('[data-search-overlay]').open = true 
+//     document.querySelector('[data-search-title]').focus()
+// })
+
+// document.querySelectorAll('.overlay__button').addEventListener('click',() => {
+//     document.querySelectorAll('.overlay__button').open = false
+
+// })
 
 document.querySelector('[data-search-cancel]').addEventListener('click', () => {
     document.querySelector('[data-search-overlay]').open = false
@@ -119,6 +125,16 @@ document.querySelector('[data-header-settings]').addEventListener('click', () =>
 document.querySelector('[data-list-close]').addEventListener('click', () => {
     document.querySelector('[data-list-active]').open = false
 })
+
+// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+//     document.querySelector('[data-settings-theme]').value = 'night'
+//     document.documentElement.style.setProperty('--color-dark', '255, 255, 255');
+//     document.documentElement.style.setProperty('--color-light', '10, 10, 20');
+// } else {
+//     document.querySelector('[data-settings-theme]').value = 'day'
+//     document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
+//     document.documentElement.style.setProperty('--color-light', '255, 255, 255');
+// }
 
 document.querySelector('[data-settings-form]').addEventListener('submit', (event) => {
     event.preventDefault()
