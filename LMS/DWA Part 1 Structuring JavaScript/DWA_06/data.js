@@ -1,10 +1,7 @@
 
 export const BOOKS_PER_PAGE = 36;
 
-/**
- * @typedef {Object} author
- * @prop {string} strings
- */
+3
 export const authors = {
   "194e164b-9365-4358-b44a-f28a93cc528f": "Steven D. Levitt",
   "76e8065c-fd7a-4a8b-a8ea-6105a47d0781": "Stephen J. Dubner",
@@ -95,10 +92,7 @@ export const authors = {
   "37018341-31f4-4ffa-8755-a49979c218dd": "Suzanne Collins"
 }
 
-/**
- * @typedef {Object} genre
- * @prop {string} strings
- */
+
 
 export const genres = {
   "a4f80b3e-3e96-4266-b729-e09b71793182": "Economics",
@@ -170,19 +164,7 @@ export const genres = {
   "c40bbf55-c8ee-4fe3-a21f-ed16210afd95": "Russian-literature",
   "64c4197d-5f8e-4bff-b440-6d19bc591fd9": "Magic"
 }
-/**
- * @typedef {Object} books
- * @prop {string}  id - id of the book
- * @prop {string} genres - genre of the book
- * @prop {number} popularity - how popular the book is
- * @prop {string} title - title of the book
- * @prop {string} image - image of the book
- * @prop {string} description 
- * @prop {number} pages - number of pages
- * @prop {Date} published - the date published
- * @prop {string} author - author of the book
- * 
- */
+
 
 export const books = [
   {
@@ -25433,3 +25415,42 @@ export const books = [
     "author": "8e7083f4-7613-4872-a21b-62fbe33fe180"
   }
 ]
+
+/**
+ * Contains references to all the HTML elements referenced through the operation of the website either upon 
+ *  while its running (via event listeners).
+ */
+export const html = {
+  header: {
+    headerSearch: document.querySelector('[data-header-search]'),
+    headerSettings: document.querySelector('[data-header-settings]'),
+  },
+  list: {
+    items: document.querySelector('[data-list-items]'),
+    message: document.querySelector('[data-list-message]'),
+    btnList: document.querySelector('[data-list-button]'),
+  },
+  active: {
+    overlay: document.querySelector('[data-list-active]'),
+    overlayBlur: document.querySelector('[data-list-blur]'),
+    overlayImage: document.querySelector('[data-list-image]'),
+    overlayTitle: document.querySelector('[data-list-title]'),
+    overlaySubtitle1: document.querySelector('[data-list-subtitle]'),
+    overlaySubtitle2: document.querySelector('[data-list-description]'),
+    overlayClose: document.querySelector('[data-list-close]'),
+  },
+  search: {
+    overlay: document.querySelector('[data-search-overlay]'),
+    find: document.querySelector('[data-search-form]'),
+    findTitle: document.querySelector('[data-search-title]'),
+    findGenre: document.querySelector('[data-search-genres]'),
+    findAuthor: document.querySelector('[data-search-authors]'),
+    findCancel: document.querySelector('[data-search-cancel]'),
+  },
+  settings: {
+    overlay: document.querySelector('[data-settings-overlay]'),
+    settingForm: document.querySelector('[data-settings-form]'),
+    settingTheme: document.querySelector('[data-settings-theme]'),
+    settingCancel: document.querySelector('[data-settings-cancel]'),
+  },
+}

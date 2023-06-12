@@ -1,11 +1,42 @@
 
 // Fully working scripts.js file
 
-import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js"
+import { books, authors, genres, BOOKS_PER_PAGE, html } from "./data.js"
 
 let page = 1;
 let matches = books
 
+
+// Preview page
+// const fragment = document.createDocumentFragment();
+// const extracted = matches.slice(0, 36);
+
+// for (let i = 0; i < extracted.length; i++) {
+//   let element = document.createElement("button");
+//   element.classList = "preview";
+//   element.dataset.id = books[i].id
+//   element.dataset.image = books[i].image;
+//   element.dataset.title = books[i].title;
+//   element.dataset.authors = `${authors[books[i].author]}`;
+//   element.setAttribute("data-preview", books[i].id);
+
+//   element.innerHTML = /* html */ `
+//             <img
+//                 class="preview__image"
+//                 src="${books[i].image}"
+//             />
+//             <div class="preview__info">
+//                 <h3 class="preview__title">${books[i].title}</h3>
+//                 <div class="preview__author">${authors[books[i].author]}</div>
+//             </div>
+//           `;
+    
+//   fragment.appendChild(element);
+// }
+// content.list.items.appendChild(fragment);
+
+
+//====Preview page ==========
 const starting = document.createDocumentFragment()
 
 for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
@@ -28,30 +59,9 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
     starting.appendChild(element)
 }
 
-document.querySelector('[data-list-items]').appendChild(starting)
+html.list.items.appendChild(starting)
 
 
- const createOptions = (data, targetSelector) => {
-
-    const fragment = document.createDocumentFragment();
-    const firstElement = document.createElement('option');
-    firstElement.value = 'any';
-    firstElement.innerText = `All ${targetSelector}`;
-    fragment.appendChild(firstElement);
-  
-    for (const [id, name] of Object.entries(data)) {
-      const element = document.createElement('option');
-      element.value = id;
-      element.innerText = name;
-      fragment.appendChild(element);
-    }
-  
-    document.querySelector(targetSelector).appendChild(fragment);
-  }
-  
-  createOptions(genres, '[data-search-genres]');
-  createOptions(authors, '[data-search-authors]');
-  
 // const genreHtml = document.createDocumentFragment()
 // const firstGenreElement = document.createElement('option')
 // firstGenreElement.value = 'any'
@@ -80,63 +90,74 @@ document.querySelector('[data-list-items]').appendChild(starting)
 //     authorsHtml.appendChild(element)
 // }
 
-// document.querySelector('[data-search-authors]').appendChild(authorsHtml)
+const options = (data, entry) => {
+
+    const fragment = document.createDocumentFragment();
+    const firstElement = document.createElement('option');
+    firstElement.value = 'any';
+    firstElement.innerText = `All ${entry}`;
+    fragment.appendChild(firstElement);
+  
+    for (const [id, name] of Object.entries(data)) {
+      const element = document.createElement('option');
+      element.value = id;
+      element.innerText = name;
+      fragment.appendChild(element);
+    }
+  
+    document.querySelector(entry).appendChild(fragment);
+  }
+  options(genres, '[data-search-genres]');
+  options(authors, '[data-search-authors]');
 
 
+//=====Show more btn =========
+html.list.btnList.innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
+html.list.btnList.enable = (matches.length - (page * BOOKS_PER_PAGE))
 
-document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
-document.querySelector('[data-list-button]').enable = (matches.length - (page * BOOKS_PER_PAGE)) > 0
-
-document.querySelector('[data-list-button]').innerHTML = `
+html.list.btnList.innerHTML = `
     <span>Show more</span>
     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
 `
 
-
-
-// document.querySelectorAll('.overlay').addEventListener('click',() => {
-//     document.querySelectorAll('.overlay').open = false 
-//     document.querySelector('[data-search-overlay]').open = true 
-//     document.querySelector('[data-search-title]').focus()
-// })
-
-// document.querySelectorAll('.overlay__button').addEventListener('click',() => {
-//     document.querySelectorAll('.overlay__button').open = false
-
-// })
-
-document.querySelector('[data-search-cancel]').addEventListener('click', () => {
-    document.querySelector('[data-search-overlay]').open = false
+html.search.findCancel.addEventListener('click', () => {
+    html.search.overlay.open = false
 })
 
-document.querySelector('[data-settings-cancel]').addEventListener('click', () => {
-    document.querySelector('[data-settings-overlay]').open = false
+//======= settings overlay ===========
+html.settings.settingCancel.addEventListener('click', () => {
+    html.settings.overlay.open = false
 })
 
-document.querySelector('[data-header-search]').addEventListener('click', () => {
-    document.querySelector('[data-search-overlay]').open = true 
-    document.querySelector('[data-search-title]').focus()
+//====== Search btn =============
+html.header.headerSearch.addEventListener('click', () => {
+    html.search.overlay.open = true 
+    html.search.findTitle.focus()
 })
 
-document.querySelector('[data-header-settings]').addEventListener('click', () => {
-    document.querySelector('[data-settings-overlay]').open = true 
+//======== Search btn ============
+html.header.headerSearch.addEventListener('click', () => {
+    html.settings.overlay.open = true 
 })
 
-document.querySelector('[data-list-close]').addEventListener('click', () => {
-    document.querySelector('[data-list-active]').open = false
+//======== Close book details ========
+html.active.overlayClose.addEventListener('click', () => {
+    html.active.overlay.open = false
 })
 
-// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-//     document.querySelector('[data-settings-theme]').value = 'night'
-//     document.documentElement.style.setProperty('--color-dark', '255, 255, 255');
-//     document.documentElement.style.setProperty('--color-light', '10, 10, 20');
-// } else {
-//     document.querySelector('[data-settings-theme]').value = 'day'
-//     document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
-//     document.documentElement.style.setProperty('--color-light', '255, 255, 255');
-// }
 
-document.querySelector('[data-settings-form]').addEventListener('submit', (event) => {
+// ==== matches your pc preference =====
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.querySelector('[data-settings-theme]').value = 'night'
+    document.documentElement.style.setProperty('--color-dark', '255, 255, 255');
+    document.documentElement.style.setProperty('--color-light', '10, 10, 20');
+} else {
+    document.querySelector('[data-settings-theme]').value = 'day'
+    document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
+    document.documentElement.style.setProperty('--color-light', '255, 255, 255');
+}
+
+html.settings.settingForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const formData = new FormData(event.target)
     const { theme } = Object.fromEntries(formData)
@@ -149,10 +170,12 @@ document.querySelector('[data-settings-form]').addEventListener('submit', (event
         document.documentElement.style.setProperty('--color-light', '255, 255, 255');
     }
     
-    document.querySelector('[data-settings-overlay]').open = false
+    html.settings.overlay.open = false
 })
 
-document.querySelector('[data-search-form]').addEventListener('submit', (event) => {
+
+///======= Search submit btn ============
+html.search.find.addEventListener('submit', (event) => {
     event.preventDefault()
     const formData = new FormData(event.target)
     const filters = Object.fromEntries(formData)
@@ -184,7 +207,7 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
         document.querySelector('[data-list-message]').classList.remove('list__message_show')
     }
 
-    document.querySelector('[data-list-items]').innerHTML = ''
+    html.list.items.innerHTML = ''
     const newItems = document.createDocumentFragment()
 
     for (const { author, id, image, title } of result.slice(0, BOOKS_PER_PAGE)) {
@@ -207,10 +230,10 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
         newItems.appendChild(element)
     }
 
-    document.querySelector('[data-list-items]').appendChild(newItems)
-    document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) < 1
+    html.list.items.appendChild(newItems)
+    html.list.btnList.disabled = (matches.length - (page * BOOKS_PER_PAGE)) < 1
 
-    document.querySelector('[data-list-button]').innerHTML = `
+    html.list.btnList.innerHTML = `
         <span>Show more</span>
         <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
     `
@@ -219,7 +242,7 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
     document.querySelector('[data-search-overlay]').open = false
 })
 
-document.querySelector('[data-list-button]').addEventListener('click', () => {
+html.list.btnList.addEventListener('click', () => {
     const fragment = document.createDocumentFragment()
 
     for (const { author, id, image, title } of matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE)) {
@@ -242,11 +265,13 @@ document.querySelector('[data-list-button]').addEventListener('click', () => {
         fragment.appendChild(element)
     }
 
-    document.querySelector('[data-list-items]').appendChild(fragment)
+    html.list.items.appendChild(fragment)
     page += 1
 })
 
-document.querySelector('[data-list-items]').addEventListener('click', (event) => {
+
+// ==== more btn for searched books ======
+html.list.items.addEventListener('click', (event) => {
     const pathArray = Array.from(event.path || event.composedPath())
     let active = null
 
