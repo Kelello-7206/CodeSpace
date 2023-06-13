@@ -46,8 +46,22 @@ const createBoard = () => {
 createBoard();
 
 
-const squareAll = document.querySelectorAll('#gameboard .square')
+const squareAll = document.querySelectorAll("#gameboard .square");
 
-squareAll =(square =>{
-    square
-})
+let startPostitonId 
+let draggableElement
+
+const dragStart = (e) => {
+ startPostitonId = console.log(e.target.parentNode.getAttribute('square-id'));
+ draggableElement = e.target
+};
+
+const dragOver = (e) => {
+    //e.preventDefault()
+    console.log(e)
+}
+
+squareAll.forEach((square) => {
+  square.addEventListener("dragstart", dragStart);
+  square.addEventListener("dragstart", dragStart);
+});
