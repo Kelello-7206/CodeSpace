@@ -56,17 +56,17 @@ const squareAll = document.querySelectorAll(".square");
 let startPostitonId;
 let draggedElement;
 
-const changePlayer = () =>{
-if(playerGo === 'black'){
-    reverseIds()
-    playerGo = "white"
-    playerDisplay.textContent = "white"
-}else{
-    revertIds()
-    playerGo = "black"
-    playerDisplay.textContent = "black"
-}
-}
+const changePlayer = () => {
+  if (playerGo === "black") {
+    reverseIds();
+    playerGo = "white";
+    playerDisplay.textContent = "white";
+  } else {
+    revertIds();
+    playerGo = "black";
+    playerDisplay.textContent = "black";
+  }
+};
 
 const dragStart = (e) => {
   startPostitonId = e.target.parentNode.getAttribute("square-id");
@@ -75,44 +75,41 @@ const dragStart = (e) => {
 
 const dragOver = (e) => {
   e.preventDefault();
-
 };
 
 const dragDrop = (e) => {
   e.stopPropagation();
- const correctGo = draggedElement.firstChild.classList.contains(playerGo )
+  const correctGo = draggedElement.firstChild.classList.contains(playerGo);
   const taken = e.target.classList.contains("piece");
-  const valid = checkIfValid(e.target)
-  const opponentGo = playerGo === 'white' ? 'black' : 'white'
-  const takenByOpponent = e.target.firstChild?.classList.contains(opponentGo)
-  
+  const valid = checkIfValid(e.target);
+  const opponentGo = playerGo === "white" ? "black" : "white";
+  const takenByOpponent = e.target.firstChild?.classList.contains(opponentGo);
 
-  if (correctGo){
-    if(takenByOpponent && valid){
-       e.target.parentNode.append(draggedElement)
-       e.target.remove() 
+  if (correctGo) {
+    if (takenByOpponent && valid) {
+      e.target.parentNode.append(draggedElement);
+      e.target.remove();
 
-       changePlayer()
-        return
+      changePlayer();
+      return;
     }
 
-    if(taken && !takenByOpponent){
-        infoDisplay.textContent = 'cannot go here'
-        setTimeout(()=> infoDisplay.textContent = "",2000)
-        return
+    if (taken && !takenByOpponent) {
+      infoDisplay.textContent = "cannot go here";
+      setTimeout(() => (infoDisplay.textContent = ""), 2000);
+      return;
     }
 
-    if(valid){
-        e.target.parentNode.append(draggedElement)
-        changePlayer()
-        return
+    if (valid) {
+      e.target.parentNode.append(draggedElement);
+      changePlayer();
+      return;
     }
   }
 
-  checkIfValid = (target) =>{
-    console.log(target)
-  }
-
+  checkIfValid = (target) => {
+    console.log(target);
+  };
 
   //e.target.append(draggedElement)
   //e.target.parentNode.append(draggedElement);
@@ -121,22 +118,21 @@ const dragDrop = (e) => {
   changePlayer();
 };
 
-const reverseIds = () =>{
- const squareAll = document.querySelectorAll(".square")
+const reverseIds = () => {
+  const squareAll = document.querySelectorAll(".square");
 
- squareAll.forEach((square, i) => {
-   square.setAttribute('square-id', (width * width - 1) - i)
+  squareAll.forEach((square, i) => {
+    square.setAttribute("square-id", width * width - 1 - i);
   });
-}
+};
 
-const revertIds = () =>{
-    const squareAll = document.querySelectorAll(".square")
-    
-    squareAll.forEach((square, i) => {
-      square.setAttribute('square-id', i)
-     });
-   }
-   
+const revertIds = () => {
+  const squareAll = document.querySelectorAll(".square");
+
+  squareAll.forEach((square, i) => {
+    square.setAttribute("square-id", i);
+  });
+};
 
 squareAll.forEach((square) => {
   square.addEventListener("dragstart", dragStart);
