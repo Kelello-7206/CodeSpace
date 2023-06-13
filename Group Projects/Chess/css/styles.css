@@ -10,6 +10,13 @@
   width: 40px; 
 }
 
+.square svg{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+
 .brown {
  background-color: rgb(156, 28, 28);
 }
