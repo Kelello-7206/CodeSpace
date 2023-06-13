@@ -57,11 +57,15 @@ const dragStart = (e) => {
 };
 
 const dragOver = (e) => {
-    //e.preventDefault()
-    console.log(e)
+    e.preventDefault()
+}
+
+const dragDrop = (e) => {
+    e.preventDefault()
 }
 
 squareAll.forEach((square) => {
   square.addEventListener("dragstart", dragStart);
-  square.addEventListener("dragstart", dragStart);
+  square.addEventListener("dragover", dragOver );
+  square.addEventListener("drop", dragDrop  );
 });
