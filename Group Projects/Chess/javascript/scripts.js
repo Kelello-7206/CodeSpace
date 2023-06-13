@@ -109,6 +109,7 @@ const dragDrop = (e) => {
 
   checkIfValid = (target) => {
     console.log(target);
+    const targetId = target.getAttribute('square-id') || target.parentNode.getAttribute('square-id')
   };
 
   //e.target.append(draggedElement)
