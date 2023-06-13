@@ -21,27 +21,33 @@ const createBoard = () => {
   startPieces.forEach((startPiece, i) => {
     const square = document.createElement("div");
     square.classList.add("square");
-    square.innerHTML = startPiece
-    square.setAttribute("square-id",i)
-     square.classList.add("brown")
-    const row = Math.floor( (63 -i) /8)+1
-    if( row%2 === 0 ){
-        square.classList.add(i % 2 === 0 ? "brown" : "grey") 
-    }else{
-        square.classList.add(i % 2 === 0 ? "grey" : "brown") 
-
+    square.innerHTML = startPiece;
+    square.firstChild?.setAttribute("draggable", true);
+    square.setAttribute("square-id", i);
+    square.classList.add("brown");
+    const row = Math.floor((63 - i) / 8) + 1;
+    if (row % 2 === 0) {
+      square.classList.add(i % 2 === 0 ? "brown" : "grey");
+    } else {
+      square.classList.add(i % 2 === 0 ? "grey" : "brown");
     }
 
-    if (i <= 15){
-       square.firstChild.firstChild.classList.add('black') 
+    if (i <= 15) {
+      square.firstChild.firstChild.classList.add("black");
     }
 
-    if (i >= 48){
-        square.firstChild.firstChild.classList.add('white') 
-     }
-     
-    gameBoard.append(square) 
+    if (i >= 48) {
+      square.firstChild.firstChild.classList.add("white");
+    }
+
+    gameBoard.append(square);
   });
 };
+createBoard();
 
-createBoard()
+
+const squareAll = document.querySelectorAll('#gameboard .square')
+
+squareAll =(square =>{
+    square
+})
