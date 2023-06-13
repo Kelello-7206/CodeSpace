@@ -19,17 +19,16 @@
     z-index: -9;
 }
 
-.piece{
-    position: relative;
-    z-index: -9;
-
-}
-
 path{
     position: relative;
     z-index: -10;
 }
 
+.piece{
+    position: relative;
+    z-index: 9 ;
+
+}
 .brown {
  background-color: rgb(156, 28, 28);
 }
