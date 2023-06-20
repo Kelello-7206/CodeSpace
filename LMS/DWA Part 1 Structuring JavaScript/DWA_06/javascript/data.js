@@ -27403,7 +27403,6 @@ export const books = [
  * Contains references to all the HTML elements referenced through the operation of the website either upon
  *  while its running (via event listeners). With some variables having EventListeners 
  */
-
 export const content = {
   header: {
     headerSearch: document

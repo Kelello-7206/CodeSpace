@@ -60,7 +60,7 @@ content.list.items.appendChild(fragment);
 
 
 // Shows the show more button
-content.list.btnList.innerHTML = `
+content.list.btnList.innerHTML = /*html*/`
     <span>Show more</span>
     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
     `
@@ -137,69 +137,67 @@ options(authors, '[data-search-authors]');
 
 
 //--- Search Btn -----
-content.search.find.addEventListener("click", (event) => {
+content.search.find.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const formData = new FormData(event.target);
   const filters = Object.fromEntries(formData);
   const result = [];
 
-  for (let i = 0; i < books.length; i++) {
-    const titleMatch =!filters.title.trim() || books[i].title.toLowerCase().includes(filters.title.toLowerCase());
-    const authorMatch = filters.author === "any" || books[i].author === filters.author;
+  for (const book of books) {
+    let genreMatch = filters.genre === 'any';
 
-    let genreMatch = true;
-    if (filters.genre !== "any") {
-      genreMatch = false;
-
-      for (let j = 0; j < books[j].genres.length; j++) {
-        if (books[j].genres === filters.genre) {
-          genreMatch = true;
-          break;
-        }
+    for (const singleGenre of book.genres) {
+      if (genreMatch) break;
+      if (singleGenre === filters.genre) {
+        genreMatch = true;
       }
     }
 
-    if (titleMatch && authorMatch && genreMatch) {
-      result.push(books);
+    if (
+      (filters.title.trim() === '' || book.title.toLowerCase().includes(filters.title.toLowerCase())) &&
+      (filters.author === 'any' || book.author === filters.author) &&
+      genreMatch
+    ) {
+      result.push(book);
     }
   }
 
   if (result.length < 1) {
-    content.list.message.classList.add('list__message_show')
+    content.list.message.classList.add('list__message_show');
   } else {
-    content.list.message.classList.remove('list__message_show')
+    content.list.message.classList.remove('list__message_show');
   }
 
-  content.list.btnList.innerHTML = ''
-  const newItems = document.createDocumentFragment()
+  content.list.btnList.innerHTML = '';
+  const newItems = document.createDocumentFragment();
 
   for (const { author, id, image, title } of result.slice(0, BOOKS_PER_PAGE)) {
-      const element = document.createElement('button')
-      element.classList = 'preview'
-      element.setAttribute('data-preview', id)
-  
-      element.innerHTML = `
-          <img
-              class="preview__image"
-              src="${image}"
-          />
-          
-          <div class="preview__info">
-              <h3 class="preview__title">${title}</h3>
-              <div class="preview__author">${authors[author]}</div>
-          </div>
-      `
-      newItems.appendChild(element)
+    const element = document.createElement('button');
+    element.classList = 'preview';
+    element.setAttribute('data-preview', id);
+
+    element.innerHTML = `
+      <img class="preview__image" src="${image}" />
+      <div class="preview__info">
+          <h3 class="preview__title">${title}</h3>
+          <div class="preview__author">${authors[author]}</div>
+      </div>
+    `;
+    newItems.appendChild(element);
   }
-  content.list.items.appendChild(newItems)
-  content.list.btnList.disabled = (matches.length - (page * BOOKS_PER_PAGE)) < 1
+
+  content.list.items.innerHTML = ''; // Clear existing items
+  content.list.items.appendChild(newItems);
+
+  content.list.btnList.disabled = (result.length - (page * BOOKS_PER_PAGE)) < 1;
 
   content.list.btnList.innerHTML = `
-  <span>Show more</span>
-  <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
-`
-content.search.overlay.close()
+    <span>Show more</span>
+    <span class="list__remaining"> (${(result.length - (page * BOOKS_PER_PAGE)) > 0 ? (result.length - (page * BOOKS_PER_PAGE)) : 0})</span>
+  `;
+
+  content.search.overlay.close();
 });
 
 
@@ -224,11 +222,11 @@ content.list.items.addEventListener("click", (event) => {
 
   if (!active) return;
 
-  document.querySelector("[data-list-active]").open = true;
-  document.querySelector("[data-list-image]").setAttribute("src", active.image);
-  document.querySelector("[data-list-blur]").style.backgroundImage = `url('${active.image}')`;
-  document.querySelector("[data-list-title]").textContent = active.title;
-  document.querySelector("[data-list-subtitle]").textContent = `${authors[active.author]} (${new Date(active.published).getFullYear()})`;
-  document.querySelector("[data-list-description]").textContent =active.description;});
+  content.active.overlay.open = true;
+  content.active.overlayImage.setAttribute("src", active.image);
+  content.active.overlayBlur.style.backgroundImage = `url('${active.image}')`;
+  content.active.overlayTitle.textContent = active.title;
+  content.active.overlaySubtitle1.textContent = `${authors[active.author]} (${new Date(active.published).getFullYear()})`;
+  content.active.overlaySubtitle2.textContent =active.description;});
 
 
