@@ -17,7 +17,6 @@ const css = {
 };
 
 //----- Submit settings btn ------
-
 content.settings.settingForm.addEventListener('submit', (event) => {
   event.preventDefault();
   
@@ -58,6 +57,14 @@ for (const { author, id, image, title } of extracted.slice(0, BOOKS_PER_PAGE)) {
   fragment.appendChild(element);
 }
 content.list.items.appendChild(fragment);
+
+
+// Shows the show more button
+content.list.btnList.innerHTML = `
+    <span>Show more</span>
+    <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
+    `
+
 
 // --- Show more ----
 const remaining = matches.slice(BOOKS_PER_PAGE);
@@ -102,6 +109,12 @@ content.list.btnList.addEventListener("click", () => {
   }
 });
 
+
+/**
+ * 
+ * @param {string} data  - contains id, name 
+ * @param {string} entry - shows the authors and genres 
+ */
 const options = (data, entry) => {
 
   const fragment = document.createDocumentFragment();
@@ -124,7 +137,6 @@ options(authors, '[data-search-authors]');
 
 
 //--- Search Btn -----
-
 content.search.find.addEventListener("click", (event) => {
   event.preventDefault();
 
