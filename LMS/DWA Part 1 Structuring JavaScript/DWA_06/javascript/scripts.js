@@ -17,6 +17,7 @@ const css = {
 };
 
 //----- Submit settings btn ------
+
 content.settings.settingForm.addEventListener('submit', (event) => {
   event.preventDefault();
   
