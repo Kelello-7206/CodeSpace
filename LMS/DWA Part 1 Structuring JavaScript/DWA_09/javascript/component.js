@@ -1,13 +1,16 @@
+import { books , authors} from "./data.js";
 
-class PreviewPage extends HTMLElement {
+
+
+class previewPage extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
     }
   
     connectedCallback() {
-      const matches = /* Provide your matches array */;
-      const BOOKS_PER_PAGE = /* Provide the number of books per page */;
+      const matches = books;
+      const BOOKS_PER_PAGE = 36
       const extracted = matches.slice(0, 36);
   
       const fragment = document.createDocumentFragment();
@@ -31,6 +34,7 @@ class PreviewPage extends HTMLElement {
       this.shadowRoot.appendChild(fragment);
     }
   }
+
+  customElements.define('preview-page', previewPage);
   
-  customElements.define('preview-page', PreviewPage);
   
