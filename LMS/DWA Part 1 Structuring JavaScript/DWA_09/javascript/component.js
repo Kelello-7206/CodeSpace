@@ -1,7 +1,3 @@
-import { books , authors} from "./data.js";
-
-
-
 class previewPage extends HTMLElement {
     constructor() {
       super();
