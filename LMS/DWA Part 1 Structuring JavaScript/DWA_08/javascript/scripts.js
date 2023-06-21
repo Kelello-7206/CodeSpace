@@ -81,44 +81,6 @@ content.list.btnList.innerHTML = /*html*/`
 const remaining = matches.slice(BOOKS_PER_PAGE);
 
 content.list.btnList.addEventListener("click", () => {
-  
-//   const addList = remaining.slice(0, BOOKS_PER_PAGE);
-//   const moreList = remaining.length > BOOKS_PER_PAGE;
-//   const newItems = document.createDocumentFragment()
-
-//   for (const { author, id, image, title } of addList.slice(0, BOOKS_PER_PAGE)) {
-//       const element = document.createElement('button')
-//       element.classList = 'preview'
-//       element.setAttribute('data-preview', id)
-  
-//       element.innerHTML = `
-//           <img
-//               class="preview__image"
-//               src="${image}"
-//           />
-          
-//           <div class="preview__info">
-//               <h3 class="preview__title">${title}</h3>
-//               <div class="preview__author">${authors[author]}</div>
-//           </div>
-//       `
-
-//       newItems.appendChild(element)
-//   }
-
-//   content.list.items.appendChild(newItems);
-
-//   if (moreList) {
-//     content.list.btnList.innerHTML = /* html */ `
-//       <span>Show more</span>
-//       <span class="list__remaining">${remaining.length - BOOKS_PER_PAGE}</span>
-//     `;
-//     remaining.splice(0, BOOKS_PER_PAGE);
-//     page++;
-//   } else {
-//     content.list.btnList.style.display = "none";
-//  }
-
 
 /**
  * 
@@ -178,7 +140,7 @@ const showMore = (content, remaining, BOOKS_PER_PAGE, authors) => {
   };
 }
 
-// Assuming you have the necessary variables defined
+// calls the show more function
 const bookList = showMore(content, remaining, BOOKS_PER_PAGE, authors);
 bookList.showBooks();
 

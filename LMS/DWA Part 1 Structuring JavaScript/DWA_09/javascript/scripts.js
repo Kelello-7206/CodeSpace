@@ -34,32 +34,8 @@ content.settings.settingForm.addEventListener('submit', (event) => {
 });
 
 
-// Preview page
-// const fragment = document.createDocumentFragment();
-// const extracted = matches.slice(0, 36);
-
-// for (const { author, id, image, title } of extracted.slice(0, BOOKS_PER_PAGE)) {
-//   let element = document.createElement("button");
-//   element.classList = "preview";
-//   element.setAttribute("data-preview", id);
-
-//   element.innerHTML = /* html */ `
-//             <img
-//                 class="preview__image"
-//                 src="${image}"
-//             />
-//             <div class="preview__info">
-//                 <h3 class="preview__title">${title}</h3>
-//                 <div class="preview__author">${authors[author]}</div>
-//             </div>
-//           `;
-    
-//   fragment.appendChild(element);
-// }
-// content.list.items.appendChild(fragment);
-
 /**
- * 
+ * Factory function for the preview page
  * @param {object} matches - has all the information on books
  * @param {number} BOOKS_PER_PAGE - number of pages
  * @returns {object} - list of books 
@@ -105,43 +81,69 @@ content.list.btnList.innerHTML = /*html*/`
 const remaining = matches.slice(BOOKS_PER_PAGE);
 
 content.list.btnList.addEventListener("click", () => {
-  
-  const addList = remaining.slice(0, BOOKS_PER_PAGE);
-  const moreList = remaining.length > BOOKS_PER_PAGE;
-  const newItems = document.createDocumentFragment()
 
-  for (const { author, id, image, title } of addList.slice(0, BOOKS_PER_PAGE)) {
-      const element = document.createElement('button')
-      element.classList = 'preview'
-      element.setAttribute('data-preview', id)
-  
-      element.innerHTML = `
-          <img
-              class="preview__image"
-              src="${image}"
-          />
-          
-          <div class="preview__info">
-              <h3 class="preview__title">${title}</h3>
-              <div class="preview__author">${authors[author]}</div>
-          </div>
-      `
+/**
+ * 
+ * @param {object} content 
+ * @param {string} remaining 
+ * @param {number} BOOKS_PER_PAGE 
+ * @param {string} authors 
+ * @returns - list of books
+ */
+const showMore = (content, remaining, BOOKS_PER_PAGE, authors) => {
+  function createButtonElement({ author, id, image, title }) {
+    const element = document.createElement('button');
+    element.classList = 'preview';
+    element.setAttribute('data-preview', id);
 
-      newItems.appendChild(element)
+    element.innerHTML = `
+      <img
+        class="preview__image"
+        src="${image}"
+      />
+      
+      <div class="preview__info">
+        <h3 class="preview__title">${title}</h3>
+        <div class="preview__author">${authors[author]}</div>
+      </div>
+    `;
+
+    return element;
   }
 
-  content.list.items.appendChild(newItems);
+  const showBooks = () => {
+    const addList = remaining.slice(0, BOOKS_PER_PAGE);
+    const moreList = remaining.length > BOOKS_PER_PAGE;
+    const newItems = document.createDocumentFragment();
 
-  if (moreList) {
-    content.list.btnList.innerHTML = /* html */ `
-      <span>Show more</span>
-      <span class="list__remaining">${remaining.length - BOOKS_PER_PAGE}</span>
-    `;
-    remaining.splice(0, BOOKS_PER_PAGE);
-    page++;
-  } else {
-    content.list.btnList.style.display = "none";
- }
+    for (const book of addList) {
+      const element = createButtonElement(book);
+      newItems.appendChild(element);
+    }
+
+    content.list.items.appendChild(newItems);
+
+    if (moreList) {
+      content.list.btnList.innerHTML = /* html */ `
+        <span>Show more</span>
+        <span class="list__remaining">${remaining.length - BOOKS_PER_PAGE}</span>
+      `;
+      remaining.splice(0, BOOKS_PER_PAGE);
+      page++;
+    } else {
+      content.list.btnList.style.display = 'none';
+    }
+  }
+
+  return {
+    showBooks,
+  };
+}
+
+// calls the show more function
+const bookList = showMore(content, remaining, BOOKS_PER_PAGE, authors);
+bookList.showBooks();
+
 });
 
 
