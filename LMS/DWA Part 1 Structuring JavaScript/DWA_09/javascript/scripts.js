@@ -87,7 +87,7 @@ content.list.btnList.addEventListener("click", () => {
  * @param {object} content 
  * @param {string} remaining 
  * @param {number} BOOKS_PER_PAGE 
- * @param {string} authors 
+ * @param {string} authors - 
  * @returns - list of books
  */
 const showMore = (content, remaining, BOOKS_PER_PAGE, authors) => {
