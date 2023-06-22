@@ -1,36 +1,87 @@
-class previewPage extends HTMLElement {
+// Define a custom element for the book preview
+class BookPreview extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
+      // Create a shadow DOM for the element
+      this.attachShadow({ mode: "open" });
     }
   
     connectedCallback() {
-      const matches = books;
-      const BOOKS_PER_PAGE = 36
-      const extracted = matches.slice(0, 36);
+      // Render the component when it's connected to the document
+      this.render();
+    }
   
-      const fragment = document.createDocumentFragment();
+    static get observedAttributes() {
+      // Specify the attributes to observe for changes
+      return ["data-book"];
+    }
   
-      for (const { author, id, image, title } of extracted.slice(0, BOOKS_PER_PAGE)) {
-        let element = document.createElement("button");
-        element.classList = "preview";
-        element.setAttribute("data-preview", id);
+    attributeChangedCallback() {
+      // Re-render the component when the observed attribute changes
+      this.render();
+    }
   
-        element.innerHTML = /* html */ `
-          <img class="preview__image" src="${image}" />
-          <div class="preview__info">
-            <h3 class="preview__title">${title}</h3>
-            <div class="preview__author">${authors[author]}</div>
-          </div>
-        `;
+    render() {
+      // Parse the book data from the "data-book" attribute
+      const book = JSON.parse(this.getAttribute("data-book"));
   
-        fragment.appendChild(element);
-      }
+      // Setting the content of the shadow DOM
+      this.shadowRoot.innerHTML = `
+         <style>
+          :host {
+            border-width: 0;
+            width: 100%;
+            font-family: Roboto, sans-serif;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 8px;
+            border: 1px solid rgba(var(--color-dark), 0.15);
+            background: rgba(var(--color-light), 1);
+          }
   
-      this.shadowRoot.appendChild(fragment);
+          .preview__image {
+            width: 48px;
+            height: 70px;
+            object-fit: cover;
+            background: grey;
+            border-radius: 2px;
+            box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.1), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+          }
+  
+          .preview__info {
+            padding: 1rem;
+          }
+  
+          .preview__title {
+            margin: 0 0 0.5rem;
+            font-weight: bold;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            color: rgba(var(--color-dark), 0.8);
+          }
+  
+          .preview__author {
+            color: rgba(var(--color-dark), 0.4);
+          }
+  
+        </style>
+  
+        <img class="preview__image" src="${book.image}" />
+        <div class="preview__info">
+          <h3 class="preview__title">${book.title}</h3>
+          <div class="preview__author">${book.authorName}</div>
+        </div>
+    
+      `;
     }
   }
-
-  customElements.define('preview-page', previewPage);
   
+  // To define the custom element "book-preview" and associate it with the BookPreview class
+  customElements.define("book-preview", BookPreview);
   
