@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="JavaScript/scripts.js" defer></script>
+    <script src="JavaScript/scripts.js" defer type="module"></script>
+    <script src="JavaScript/component.js" defer type="module"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.5.0/cdn/themes/light.css" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.5.0/cdn/shoelace-autoloader.js"></script>
     <title>Tally Count</title>
   </head>
 
@@ -14,27 +17,6 @@
     <header class="header">
       <h1 class="header_title">Tally count</h1>
     </header>
-    <!----- <aside>
-        <aside class="controls ">
-            <label>
-                <span>Display</span>
-                <select>
-                    <option>Single</option>
-                    <option>Multiple</option>
-                </select>
-            </label>
-
-            <label>
-                <span>Counter</span>
-                <select>
-                    <option>Counter 1</option>
-                    <option>Counter 2</option>
-                    <option>Counter 3</option>
-                </select>
-            </label>
-
-            <button>Settings </button>
-        </aside>-->
 
     <main class="counter">
       <input class="counter_value" data-key="number" readonly value="0" />
@@ -43,6 +25,8 @@
         <button data-key="add" class="counter_button">+</button>
       </div>
     </main>
+
+ 
     <footer class="footer">
       Inspired by
       <a class="footer_link" href="https://tallycount.app/">Tally count</a>
