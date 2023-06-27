@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Kelello-7206/CodeSpace#readme",
   "devDependencies": {
     "jsdoc": "^4.0.2"
+  },
+  "dependencies": {
+    "lit": "^2.7.5"
   }
 }
