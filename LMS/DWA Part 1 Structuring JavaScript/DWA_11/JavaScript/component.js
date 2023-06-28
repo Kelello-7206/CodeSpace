@@ -48,6 +48,6 @@ updateButtonStates() {
 this.subtractButton.disabled = this.count <= -5;
 this.addButton.disabled = this.count >= 12;
 }
-}
+
 
 customElements.define("tally-count", TallyCount);

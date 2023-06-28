@@ -1,6 +1,6 @@
 const MAX_NUMBER = 12;
-const MIN_NUMBER = -5;
-const STEP_AMOUNT = 5;
+const MIN_NUMBER = -1;
+const STEP_AMOUNT = 1;
 const RESET =parseInt(0);
 
 /*Global constants set at the top and never change*/

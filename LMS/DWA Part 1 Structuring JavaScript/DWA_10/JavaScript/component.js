@@ -1,21 +1,33 @@
-class tallyCount extends HTMLElement {
-    constructor() {
-      super();
+class TallyCount extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.value = 0;
+    this.maxNumber = 12;
+    this.minNumber = -1;
+    this.stepAmount = 1;
+    this.resetValue = 0;
+  }
 
-      this.attachShadow({ mode: "open" });
-      this.shadowRoot.innerHTML = `
-        <style>        
-        /*controls */
+  connectedCallback() {
+    this.render();
+    this.addEventListeners();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        /* Controls */
         .controls {
           background: yellow;
         }
-        
-        /*Counter*/
+
+        /* Counter */
         .counter {
           background: var(--color-dark-grey);
         }
-        
-        /*displays the value of the counter*/
+
+        /* Displays the value of the counter */
         .counter_value {
           width: 100%;
           height: 15rem;
@@ -27,16 +39,16 @@ class tallyCount extends HTMLElement {
           border-width: 0;
           border-bottom: 1px solid var(--color-light-grey);
         }
-        
-        sl-button.counter_actions::part(base){
+
+        sl-button.counter_actions::part(base) {
           display: flex;
         }
+
         .counter_actions {
           display: flex;
         }
 
-        
-        sl-button.counter_button::part(base){
+        sl-button.counter_button::part(base) {
           background: none;
           width: 50%;
           border-width: 0;
@@ -44,11 +56,11 @@ class tallyCount extends HTMLElement {
           font-size: 3rem;
           height: 10rem;
           border-bottom: 1px solid var(--color-light-grey);
-          /*has an effect when button is clicked*/
+          /* Has an effect when button is clicked */
           transition: transform 0.1s;
           transform: translateY(0);
         }
-        
+
         .counter_button {
           background: none;
           width: 50%;
@@ -57,103 +69,88 @@ class tallyCount extends HTMLElement {
           font-size: 3rem;
           height: 10rem;
           border-bottom: 1px solid var(--color-light-grey);
-          /*has an effect when button is clicked*/
+          /* Has an effect when button is clicked */
           transition: transform 0.1s;
           transform: translateY(0);
         }
-        
-        .counter_button:disabled{
-            opacity: 0.2; 
-            /*When the set limit is reached, the button disables*/
+
+        .counter_button:disabled {
+          opacity: 0.2;
+          /* When the set limit is reached, the button disables */
         }
-        
+
         .counter_button:active {
           background: var(--color-medium-grey);
-          /*button turns changes color time its clicked*/
+          /* Button turns changes color time its clicked */
         }
-        
+
         .counter_button_first {
           border-right: 1px solid var(--color-light-grey);
         }
-  
-        
-        </style>
+      </style>
 
-        <header class="header">
-          <h1 class="header_title">Tally count</h1>
-        </header>
-        <main class="counter">
-          <input class="counter_value" data-key="number" readonly value="0" />
-          <div class="counter_actions">
-            <button data-key="subtract" class="counter_button counter_button_first">
-              -
-            </button>
-            <button data-key="add" class="counter_button">+</button>
-            <sl-button data-key="reset" style="height: 10rem; width: 50%; border-bottom: 1px solid; font-size: 3rem; display: flex; transition: transform 0.1s;">
-              Reset
-            </sl-button>
-          </div>
-        </main>
-      `;
-      
-      const MAX_NUMBER = 12;
-      const MIN_NUMBER = -5;
-      const STEP_AMOUNT = 5;
-      const RESET =parseInt(0);
+      <header class="header">
+        <h1 class="header_title">Tally count</h1>
+      </header>
+      <main class="counter">
+        <input class="counter_value" readonly value="${this.value}" />
+        <div class="counter_actions">
+          <button data-key="subtract" class="counter_button counter_button_first">-</button>
+          <button data-key="add" class="counter_button">+</button>
+          <sl-button data-key="reset" style="height: 10rem; width: 50%; border-bottom: 1px solid; font-size: 3rem; display: flex; transition: transform 0.1s;">Reset</sl-button>
+        </div>
+      </main>
+    `;
+  }
 
-      this.number = this.shadowRoot.querySelector('[data-key="number"]');
-      this.subtract = this.shadowRoot.querySelector('[data-key="subtract"]');
-      this.add = this.shadowRoot.querySelector('[data-key="add"]');
-      this.reset = this.shadowRoot.querySelector('[data-key="reset"]');
+  addEventListeners() {
+    const subtract = this.shadowRoot.querySelector('[data-key="subtract"]');
+    const add = this.shadowRoot.querySelector('[data-key="add"]');
+    const reset = this.shadowRoot.querySelector('[data-key="reset"]');
+    const number = this.shadowRoot.querySelector('.counter_value');
 
-      this.subtractHandler = () => {
-        const newValue = parseInt(this.number.value) - STEP_AMOUNT;
-        this.number.value = newValue;
-      
-        if ( this.add.disabled === true) {
-          this.add.disabled = false;
-        }
-      
-        if ( this.newValue <= MIN_NUMBER) {
-          this.subtract.disabled = true;
-        }
-      };
+    const subtractHandler = () => {
+      const newValue = parseInt(number.value) - this.stepAmount;
+      number.value = newValue;
 
-      this.addHandler = () => {
-        const newValue = parseInt(number.value) + STEP_AMOUNT;
-        this.number.value = newValue;
-    
-        if (subtract.disabled === true) {
-          this.subtract.disabled = false;
-        }
-    
-        if (newValue >= MAX_NUMBER) {
-          add.disabled = true;
-        }
-      };
+      if (add.disabled === true) {
+        add.disabled = false;
+      }
 
-      this.resetHandler = () => {
-        const newValue = parseInt(RESET) ;
-        this.number.value = newValue
-    
-       for(let i = this.number.value; i <= 10; i++){
-        if(number.value <= 10){
-          alert(" the counter has been reset");
-        }break
-       }
+      if (newValue <= this.minNumber) {
+        subtract.disabled = true;
+      }
     };
 
-    connectedCallback(  {
-        subtract.addEventListener('click', this.subtractHandler);
-      
-    }
+    const addHandler = () => {
+      const newValue = parseInt(number.value) + this.stepAmount;
+      number.value = newValue;
 
-    disconnectedCallback() {
-      this.subtract.removeEventListener("click", this.subtractHandler);
-      this.add.removeEventListener("click", this.addHandler);
-      this.reset.removeEventListener("click", this.resetHandler);
-    }
-}};
+      if (subtract.disabled === true) {
+        subtract.disabled = false;
+      }
 
-  customElements.define("tally-count", tallyCount);
+      if (newValue >= this.maxNumber) {
+        add.disabled = true;
+      }
+    };
 
+    const resetHandler = () => {
+      const newValue = parseInt(this.resetValue);
+      number.value = newValue;
+
+      for (let i = number.value; i <= 10; i++) {
+        if (number.value <= 10) {
+          alert("The counter has been reset");
+        }
+        break;
+      }
+    };
+
+    subtract.addEventListener('click', subtractHandler);
+    add.addEventListener('click', addHandler);
+    reset.addEventListener('click', resetHandler);
+  }
+}
+
+customElements.define('tally-count', TallyCount);
