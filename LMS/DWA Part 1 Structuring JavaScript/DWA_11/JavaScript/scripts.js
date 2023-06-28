@@ -63,11 +63,11 @@ function counterReducer(state = { count: 0 }, action) {
   }
 }
 
-import Redux from 'redux';
+import { createStore } from 'redux'
 
 
 // Store
-const store = Redux.createStore(counterReducer);
+const store = createStore(counterReducer);
 
 // Subscriber (Console Logger)
 function consoleLogger() {
