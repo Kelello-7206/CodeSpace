@@ -33,11 +33,12 @@ const sWord = names.map(name => name.includes('S')).toString().toLowerCase()
 console.log(sWord)
 
 // // Use reduce to turn the names and provinces into an object
-// const namesAndProvinces = names.reduce((obj, name, index) => {
-//   obj[name] = provinces[index];
+// const namesAndProvinces = names.reduce((obj, name, i) => {
+//   obj[name] = provinces[i];
 //   return obj;
-// }, {});
+// }, {})
 // console.log(namesAndProvinces);
+
 
 // const products = [
 //   { product: 'banana', price: "2" },
