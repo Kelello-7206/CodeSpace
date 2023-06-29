@@ -12,27 +12,25 @@ const upperCase = provinces.map(upper => upper.toUpperCase());
 console.log(upperCase);
 
 //new array with map that has the amount of characters in each name
-// const name1 = names.map(name1 => name1.length);
-// console.log(name1);
-
 const name1 = names.map(name1 => name1.length);
-for(let i = 0;i < name1.length;i++ ){
-  console.log(name1)
-}
+console.log(name1);
+
+// const name1 = names.map(name1 => name1.length);
+// for(let i = 0;i < name1.length;i++ ){
+//   console.log(name1)
+// } // console logs 7 times
 
 // Sort all provinces 
 const sort = provinces.sort()
 console.log(sort);
 
-// // Use filter to remove all provinces that have the word "Cape" in them
-// const filteredProvinces = provinces.filter(province => !province.includes('Cape'));
-// console.log(filteredProvinces.length);
+// Use filter to remove all provinces that have the word "Cape" in them
 const filter = provinces.filter( removeCape => !removeCape.includes('Cape'));
 console.log(filter.length);
 
-// // Create a boolean array by using map and some to determine whether a name contains an 'S' character
-// const hasSCharacter = names.map(name => name.includes('S'));
-// console.log(hasSCharacter);
+//determine whether a name contains an 'S' character
+const sWord = names.map(name => name.includes('S')).toString().toLowerCase()
+console.log(sWord)
 
 // // Use reduce to turn the names and provinces into an object
 // const namesAndProvinces = names.reduce((obj, name, index) => {
