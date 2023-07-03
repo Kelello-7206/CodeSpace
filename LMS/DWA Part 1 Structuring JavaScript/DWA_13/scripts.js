@@ -1,17 +1,17 @@
 const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State'];
 const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie'];
 
-// Use forEach to console log each name to the console
+// console log each name to the console
 names.forEach(name => { console.log(name);});
 
-// Use forEach to console log each name with a matching province
+// console log each name with a matching province
 names.forEach((name, i) =>{ console.log(`${name} (${provinces[i]})`)});
 
 // all province names and turn the string to all uppercase
 const upperCase = provinces.map(upper => upper.toUpperCase());
 console.log(upperCase);
 
-//new array with map that has the amount of characters in each name
+//map that has the amount of characters in each name
 const name1 = names.map(name1 => name1.length);
 console.log(name1);
 
@@ -24,20 +24,20 @@ console.log(name1);
 const sort = provinces.sort()
 console.log(sort);
 
-// Use filter to remove all provinces that have the word "Cape" in them
+//removes all provinces that have the word "Cape" in them
 const filter = provinces.filter( removeCape => !removeCape.includes('Cape'));
 console.log(filter.length);
 
-//determine whether a name contains an 'S' character
+//determine whether  name contains 'S' 
 const sWord = names.map(name => name.includes('S')).toString().toLowerCase()
 console.log(sWord)
 
-// // Use reduce to turn the names and provinces into an object
-// const namesAndProvinces = names.reduce((obj, name, i) => {
-//   obj[name] = provinces[i];
-//   return obj;
-// }, {})
-// console.log(namesAndProvinces);
+// reduce turns the names and provinces into an object
+const namesAndProvinces = names.reduce((obj, name, i) => {
+  obj[name] = provinces[i];
+  return obj;
+}, {})
+console.log(namesAndProvinces);
 
 
 const products = [
@@ -99,3 +99,4 @@ products.forEach(product => {
 //   return obj;
 // }, {});
 // console.log(transformedProducts);
+
