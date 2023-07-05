@@ -68,24 +68,56 @@
 // )
 
 
-// //Lesson 4 - recreate the above line of code in vanilla JS by creating and appending an h1
-
+// //Lesson 4 - recreate the above line of code in vanilla JS by creating and appending an h1.
 // const h1 = document.createElement("ul")
 // h1.textContent = "This is React"
 // h1.className = "header"
 // document.getElementById("root").append(h1)
 
-// // Lesson 5 - Create a navbar in JSX:
+// //Lesson 5 - Create a navbar in JSX:
+// const nav1 = (
+//     <nav>
+//         <h1>Website</h1>
+//         <ul>
+//             <li>Pricing</li>
+//             <li>About</li>
+//             <li>Contact</li>
+//         </ul>
+//     </nav>
+// )
+// ReactDOM.render(nav1,document.getElementById('root'))
 
-const nav1 = (
-    <nav>
-        <h1>Website</h1>
+
+// // Lesson 6 - Find out what happens if we try to append JSX to our div#root using .append() instead of ReactDOM
+// const page = (
+//     <div>
+//         <h1>My awesome website in React</h1>
+//         <h3>Reasons I learn React</h3>
+//         <ol>
+//             <li>It's my first time learning</li>
+//             <li>It's fun learning so far</li>
+//             <li>I am learning React form CodeSpace and scrimba</li>
+//         </ol>
+//     </div>
+// )
+// ReactDOM.render(page, document.getElementById("root"))
+// //document.getElementById("root").append(JSON.stringify(page))
+
+// //Jsx returns plain JavaScript objects
+
+
+// //Lesson 7 - Starting from scratch, build and render the HTML for our section project. Check the Google slide for what you're trying to build.
+const page = (
+    <div>
+        <img src="./react-logo.png" width="32px" />
+        <h1>Fun facts about React</h1>
         <ul>
-            <li>Pricing</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>Was first released in 2013</li>
+            <li>Was originally created by Jordan Walke</li>
+            <li>Has well over 100K stars on GitHub</li>
+            <li>Is maintained by Facebook</li>
+            <li>Powers thousands of enterprise apps, including mobile apps</li>
         </ul>
-    </nav>
+    </div>
 )
-ReactDOM.render(nav1,document.getElementById('root'))
-
+ReactDOM.render(page, document.getElementById("root"))
