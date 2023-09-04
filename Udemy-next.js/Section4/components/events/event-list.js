@@ -1,9 +1,9 @@
-import EventItem from "../event-item";
+import EventItem from "./event-item";
 
 function EventList(props) {
   const { items } = props;
 
-  return;
+  return(
   <ul>
     {items.map((event) => (
       <EventItem
@@ -15,7 +15,8 @@ function EventList(props) {
         image={event.image}
       />
     ))}
-  </ul>;
+  </ul>
+  );
 }
 
 export default EventList;
