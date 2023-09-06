@@ -32,7 +32,7 @@ function FilteredEventsPage() {
     return (
       <Fragment>
           <ErrorAlert>
-        <p>Invalid filter. Adjust your values!</p>
+           <p>Invalid filter. Adjust your values!</p>
         </ErrorAlert>
         <div className="center">
           <Button link="/events">Show All Events</Button>
