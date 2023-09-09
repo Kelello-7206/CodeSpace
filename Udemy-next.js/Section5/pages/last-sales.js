@@ -8,7 +8,7 @@ function LastSalesPage() {
     setIsLoading(true);
 
     fetch(
-      "https://udemy-nextjs-section5-a6ae3-default-rtdb.firebaseio.com/slaes.json"
+      "https://udemy-nextjs-section5-a6ae3-default-rtdb.firebaseio.com/sales.json"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -29,6 +29,10 @@ function LastSalesPage() {
 
   if (isLoading) {
     return <p>Loading...</p>;
+  }
+
+  if (!sales) {
+    return <p>No data yet</p>;
   }
 
   return (
