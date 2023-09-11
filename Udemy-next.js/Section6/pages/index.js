@@ -6,7 +6,7 @@ function HomePage(props) {
     <div>
       <EventList items={props.events} />
     </div>
-  );
+  );                                                                                                                                                                                                                                     
 }
 
 export async function getStaticProps() {
@@ -16,7 +16,7 @@ export async function getStaticProps() {
     props: {
       events: featuredEvents
     },
-    revalidate: 1800
+    revalidate: 1800                                                                                                           
   }
 }
 
