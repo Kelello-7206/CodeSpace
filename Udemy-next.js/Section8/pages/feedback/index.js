@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 
-import { buildFeedbackPath, extractFeedback } from "../api/feedback";
+import { buildFeedbackPath, extractFeedback } from "../api/index";
 
 function FeedbackPage(props) {
   const [feedbackData, setFeedbackData] = useState();
