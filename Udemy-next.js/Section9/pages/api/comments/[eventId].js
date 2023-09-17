@@ -32,10 +32,12 @@ function handler(req, res) {
 
   if (req.method === "GET") {
     const dummyList = [
-        {id: 'c1', name:"max", text: " A first comment"}
+        {id: 'c1', name:"max", text: " A first comment"},
+        {id: 'c2', name:"james", text: " A second comment"}
+
     ]
 
-    res.status(200).json({message: dummyList});
+    res.status(200).json({comments: dummyList});
   }
 }
 

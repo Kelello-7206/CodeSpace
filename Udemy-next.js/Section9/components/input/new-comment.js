@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import classes from './new-comment.module.css';
 
 function NewComment(props) {
+
   const [isInvalid, setIsInvalid] = useState(false);
 
   const emailInputRef = useRef();
@@ -10,11 +11,10 @@ function NewComment(props) {
 
   function sendCommentHandler(event) {
     event.preventDefault();
-
     const enteredEmail = emailInputRef.current.value;
     const enteredName = nameInputRef.current.value;
     const enteredComment = commentInputRef.current.value;
-
+    
     if (
       !enteredEmail ||
       enteredEmail.trim() === '' ||
@@ -27,7 +27,6 @@ function NewComment(props) {
       setIsInvalid(true);
       return;
     }
-
     props.onAddComment({
       email: enteredEmail,
       name: enteredName,
@@ -36,7 +35,7 @@ function NewComment(props) {
   }
 
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={sendCommentHandler}>
       <div className={classes.row}>
         <div className={classes.control}>
           <label htmlFor='email'>Your email</label>
@@ -52,9 +51,8 @@ function NewComment(props) {
         <textarea id='comment' rows='5' ref={commentInputRef}></textarea>
       </div>
       {isInvalid && <p>Please enter a valid email address and comment!</p>}
-      <button>Submit</button>
+      <button className={classes.btn}>Submit</button>
     </form>
   );
 }
-
 export default NewComment;
