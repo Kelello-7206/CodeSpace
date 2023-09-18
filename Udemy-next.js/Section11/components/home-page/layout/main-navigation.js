@@ -1,13 +1,11 @@
 import Link from 'next/link'
+import Logo from "./logo"
+import classes from './main-navigation.module.css'
 
-function MainNavigation(props) {
+function MainNavigation() {
   return (
-    <header>
-      <Link href='/'>
-        <a>
-          <Logo />
-        </a>
-        </Link>
+    <header className={classes.header}>
+      <Link href='/'> <Logo /> </Link>
       <nav>
         <ul>
           <li><Link href='/posts'>Posts</Link></li>
