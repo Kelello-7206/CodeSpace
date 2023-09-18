@@ -9,19 +9,15 @@ function Notification(props) {
   const { title, message, status } = props;
 
   let statusClasses = '';
-
   if (status === 'success') {
     statusClasses = classes.success;
   }
-
   if (status === 'error') {
     statusClasses = classes.error;
   }
-
   if (status === 'pending') {
     statusClasses = classes.pending;
   }
-
   const activeClasses = `${classes.notification} ${statusClasses}`;
 
   return (
@@ -31,5 +27,4 @@ function Notification(props) {
     </div>
   );
 }
-
 export default Notification;

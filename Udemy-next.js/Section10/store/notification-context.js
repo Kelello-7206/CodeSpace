@@ -1,34 +1,44 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from 'react';
 
 const NotificationContext = createContext({
-    notification: null,
-    showNotification: function() {notificationData},
-    hideNotification: function() {}
+  notification: null, // { title, message, status }
+  showNotification: function (notificationData) {},
+  hideNotification: function () {},
 });
-
-
 export function NotificationContextProvider(props) {
-    const [activeNotification, setActiveNotification] = useState()
+  const [activeNotification, setActiveNotification] = useState();
 
-    function showNotificationHandler(props) {
-        setActiveNotification(notificationData)
-    }
+  useEffect(() => {
+    if (
+      activeNotification &&
+      (activeNotification.status === 'success' ||
+        activeNotification.status === 'error')
+    ) {
+      const timer = setTimeout(() => {
+        setActiveNotification(null);
+      }, 3000);
 
-    function hideNotificationHandler(){
-        setActiveNotification(null)
+      return () => {
+        clearTimeout(timer);
+      };
     }
+  }, [activeNotification]);
 
-    const context = {
-        notification: activeNotification,
-        showNotification: showNotificationHandler,
-        hideNotification: hideNotificationHandler,
-    }
-    
-    return (
-        <NotificationContext.Provider>
-            {props.children}
-        </NotificationContext.Provider>
-    )
+  function showNotificationHandler(notificationData) {
+    setActiveNotification(notificationData);
+  }
+  function hideNotificationHandler() {
+    setActiveNotification(null);
+  }
+  const context = {
+    notification: activeNotification,
+    showNotification: showNotificationHandler,
+    hideNotification: hideNotificationHandler,
+  };
+  return (
+    <NotificationContext.Provider value={context}>
+      {props.children}
+    </NotificationContext.Provider>
+  );
 }
-
-export default NotificationContext
+export default NotificationContext;
