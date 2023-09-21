@@ -8,4 +8,4 @@
 
 # This is a title
 
-Regular text with link [link] (http://google.com)
+Regular text with [link](http://google.com)
