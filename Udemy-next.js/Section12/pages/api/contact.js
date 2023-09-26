@@ -22,10 +22,11 @@ async function handler(req, res) {
 
   let client;
 
+  const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.s2ffwug.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority&appName=AtlasApp`;
+
   try {
 
-    client = await MongoClient.connect('mongodb+srv://user3:xpIOagry1PEc0tLT@cluster0.s2ffwug.mongodb.net/my-site?retryWrites=true&w=majority&appName=AtlasApp'
-    )
+    client = await MongoClient.connect(connectionString)
 
   } catch (error) {
     res.status(500).json({ message: 'Failed to connect to database' })
