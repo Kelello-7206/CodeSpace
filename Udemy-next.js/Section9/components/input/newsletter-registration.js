@@ -1,4 +1,4 @@
-import {useRef} from "react"
+import { useRef } from "react"
 import classes from './newsletter-registration.module.css';
 
 function NewsletterRegistration() {
@@ -11,12 +11,12 @@ function NewsletterRegistration() {
 
     fetch('api/newsletter', {
       method: "POST",
-      body: JSON.stringify({email: enteredEmail}),
+      body: JSON.stringify({ email: enteredEmail }),
       headers: {
         "Content-Type": 'application/json',
       },
     }).then(response => response.json())
-    .then((data) => console.log(data))
+      .then((data) => console.log(data))
   }
 
   return (
