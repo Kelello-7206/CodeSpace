@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers';
+// import Providers from 'next-auth/providers'; (old way)
+import Auth0Provider from "next-auth/providers/auth0"
 import { connectToDatabase } from '../../../lib/db';
 import { verifyPassword } from '../../../lib/auth';
 
@@ -8,28 +9,60 @@ export default NextAuth({
     jwt: true
   },
   providers: [
-    Providers.Credentials({
+    Auth0Provider({
       async authorize(credentials) {
+
         const client = await connectToDatabase();
 
         const userCollection = client.db().collection('user');
-
-        const user = await userCollection.findOne({ email: credentials.email })
+        
+        const user = await userCollection.findOne({ email: credentials.email });
 
         if (!user) {
-          client.close()
-          throw new Error('No user found!')
+          client.close();
+          throw new Error('No user found!');
         }
 
         const isValid = await verifyPassword(credentials.password, user.password);
 
         if (!isValid) {
-          client.close()
-          throw new Error('Could not log in'); f
+          client.close();
+          throw new Error('Could not log in');
         }
-        client.close()
-        return { email: user.email }
+
+        client.close();
+        return { email: user.email };
       }
     })
   ]
-})
+});
+
+  // (old way)
+  // session: {
+  //   jwt: true
+  // },
+  // providers: [
+  //   Providers.Credentials({
+  //     async authorize(credentials) {
+  //       const client = await connectToDatabase();
+
+  //       const userCollection = client.db().collection('user');
+
+  //       const user = await userCollection.findOne({ email: credentials.email })
+
+  //       if (!user) {
+  //         client.close()
+  //         throw new Error('No user found!')
+  //       }
+
+  //       const isValid = await verifyPassword(credentials.password, user.password);
+
+  //       if (!isValid) {
+  //         client.close()
+  //         throw new Error('Could not log in'); f
+  //       }
+  //       client.close()
+  //       return { email: user.email }
+  //     }
+  //   })
+  // ]

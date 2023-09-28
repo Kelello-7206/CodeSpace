@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-import { signIn } from 'next-auth/client'
+// import { signIn } from 'next-auth/client' (old way)
+import { signIn } from 'next-auth/react'
 import classes from './auth-form.module.css';
 
 async function createUser(email, password) {
@@ -43,7 +44,10 @@ function AuthForm() {
         password: enteredPassword,
       })
 
-      console.log(result)
+      if(!result.error) {
+        
+      }
+
     } else {
       try {
         const result = await createUser(enteredEmail, enteredPassword);
