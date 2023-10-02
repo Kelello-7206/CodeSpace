@@ -17,7 +17,7 @@ function MainNavigation() {
       </Link>
       <nav>
         <ul>
-          {!session && !status && (
+          {!session && !status !=='loading' && (
             <li>
               <Link href='/auth'>Login</Link>
             </li>

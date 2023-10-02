@@ -3,11 +3,14 @@ import NextAuth from 'next-auth'
 import Auth0Provider from "next-auth/providers/auth0"
 import { connectToDatabase } from '../../../lib/db';
 import { verifyPassword } from '../../../lib/auth';
+import { useRouter } from 'next/router';
 
 export default NextAuth({
   session: {
-    jwt: true
+    // jwt: true (old way)
+    strategy: 'jwt',
   },
+  
   providers: [
     Auth0Provider({
       async authorize(credentials) {
